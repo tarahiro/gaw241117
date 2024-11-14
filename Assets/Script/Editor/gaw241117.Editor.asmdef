@@ -1,12 +1,11 @@
 {
-    "name": "FakeProject.MasterData",
-    "rootNamespace": "FakeProject.MasterData",
+    "name": "gaw241117.Editor",
+    "rootNamespace": "gaw241117.Editor",
     "references": [
         "GUID:0be27b54e10228743974a8df3dda3639",
-        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
-        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:80730cb7ec02f6544bfe954bc465eae7"
+        "GUID:cdc9eda939f6a8649a5f90cc3ecf4fd8",
+        "GUID:80730cb7ec02f6544bfe954bc465eae7",
+        "GUID:923c6bf0b90cc66458dd799c35b181e0"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

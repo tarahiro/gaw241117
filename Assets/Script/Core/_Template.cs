@@ -7,7 +7,7 @@ using Cysharp.Threading.Tasks;
 using Tarahiro;
 using UniRx;
 
-namespace FakeProject
+namespace gaw241117
 {
     public class _Template
     {
