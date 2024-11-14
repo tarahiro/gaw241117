@@ -1,0 +1,19 @@
+{
+    "name": "FakeProject.Editor",
+    "rootNamespace": "FakeProject.Editor",
+    "references": [
+        "GUID:0be27b54e10228743974a8df3dda3639",
+        "GUID:cdc9eda939f6a8649a5f90cc3ecf4fd8",
+        "GUID:80730cb7ec02f6544bfe954bc465eae7",
+        "GUID:923c6bf0b90cc66458dd799c35b181e0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
