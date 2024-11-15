@@ -126,28 +126,24 @@ namespace gaw241117.View
 
         void NoneTouch()
         {
-            Log.DebugLog("None移行");
             State = TouchConst.TouchState.None;
             BeginScreenPoint = Vector2.zero;
         }
 
         void BeginTouch()
         {
-            Log.DebugLog("Begin移行");
             State = TouchConst.TouchState.Begin;
             BeginScreenPoint = ScreenPoint;
         }
 
         void Touching()
         {
-            Log.DebugLog("Touching移行");
             State = TouchConst.TouchState.Touching;
 
         }
 
         void EndTouch()
         {
-            Log.DebugLog("End移行");
             State = TouchConst.TouchState.End;
         }
 

@@ -42,15 +42,7 @@ namespace gaw241117.View
                 {
                     if (_touchView.State == TouchConst.TouchState.End)
                     {
-                        Vector2 dir = _touchView.ScreenPoint - _touchView.BeginScreenPoint;
-                        float xzForceLength = c_fakeXzDirectionMaxForceLengh * Mathf.Min(dir.magnitude / c_fakeXyScreenPointMaxLength, 1f);
-                        float x = xzForceLength * dir.x / dir.magnitude;
-                        float z = xzForceLength * dir.y / dir.magnitude;
-                        _rigidbody.AddForce(new Vector3(x, c_fakeYDirectionForceLengh, z), ForceMode.Impulse);
-                        _rigidbody.AddTorque(Vector3.right * Mathf.PI / 4f, ForceMode.Impulse);
-
-                        _isCoinMoving = true;
-                        _isCoinRigidbodyPropertySaved = false;
+                        ThrowCoin();
                     }
                 }
             }
@@ -86,6 +78,19 @@ namespace gaw241117.View
         public enum CoinState
         {
 
+        }
+
+        void ThrowCoin()
+        {
+            Vector2 dir = _touchView.ScreenPoint - _touchView.BeginScreenPoint;
+            float xzForceLength = c_fakeXzDirectionMaxForceLengh * Mathf.Min(dir.magnitude / c_fakeXyScreenPointMaxLength, 1f);
+            float x = xzForceLength * dir.x / dir.magnitude;
+            float z = xzForceLength * dir.y / dir.magnitude;
+            _rigidbody.AddForce(new Vector3(x, c_fakeYDirectionForceLengh, z), ForceMode.Impulse);
+            _rigidbody.AddTorque(Vector3.right * Mathf.PI / 4f, ForceMode.Impulse);
+
+            _isCoinMoving = true;
+            _isCoinRigidbodyPropertySaved = false;
         }
 
         bool IsHead()
