@@ -6,6 +6,7 @@ using Tarahiro.Editor.XmlImporter;
 using System.Collections.Generic;
 using UnityEditor;
 using gaw241117;
+using gaw241117.Model;
 using gaw241117.Model.MasterData;
 
 namespace gaw241117.Editor

@@ -2,6 +2,7 @@
 using UnityEngine;
 using Tarahiro.MasterData;
 using gaw241117;
+using gaw241117.Model;
 
 namespace gaw241117.Model.MasterData
 {
