@@ -14,6 +14,8 @@ namespace gaw241117.View
     public class CoinView : MonoBehaviour,ICoinView
     {
         [Inject] ITouchView _touchView;
+        [Inject] IIsHeadUiView _isTailUiView;
+
         [SerializeField] Rigidbody _rigidbody;
         [SerializeField] Transform _normalObject;
 
@@ -70,7 +72,7 @@ namespace gaw241117.View
                     if (_rigidbody.position == _prevPosition && _rigidbody.rotation == _prevQuaternion)
                     {
                         _isCoinMoving = false;
-                        Log.DebugLog(IsHead().ToString());
+                        _isTailUiView.Show(IsHead()).Forget();
                     }
                     else
                     {
