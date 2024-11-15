@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using gaw241117;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,14 +8,14 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace gaw241117
+namespace gaw241117.Model
 {
-    public class GameManager : IInitializable
+    public class CoinAdapter : ICoinAdapter
     {
-        [Inject] ICoinAdapter _coin;
-        public void Initialize()
+        [Inject] ICoinModel _model;
+        public void StartCoin()
         {
-            _coin.StartCoin();
+            _model.EnterModel();
         }
     }
 }

@@ -12,9 +12,16 @@ namespace gaw241117.Model
 {
     public class CoinModel : ICoinModel
     {
+        event Action Entered;
+
+        public void InitializeModel(Action entered)
+        {
+            Entered += entered;
+        }
+
         public void EnterModel()
         {
-            Log.DebugLog("Coin");
+            Entered.Invoke();
         }
     }
 }

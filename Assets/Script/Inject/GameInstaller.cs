@@ -8,6 +8,8 @@ using Tarahiro;
 using UniRx;
 using gaw241117;
 using gaw241117.Model;
+using gaw241117.Presenter;
+using gaw241117.View;
 
 namespace gaw241117.Inject
 {
@@ -15,9 +17,19 @@ namespace gaw241117.Inject
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<GameManager>().AsSingle();
-            Container.BindInterfacesAndSelfTo<CoinModel>().AsSingle(); ;
-            Container.BindInitializableExecutionOrder<GameManager>(-100);
+
+            //Coin
+            Container.BindInterfacesTo<CoinAdapter>().AsSingle();
+            Container.BindInterfacesTo<CoinModel>().AsSingle();
+            Container.BindInterfacesTo<CoinPresenter>().AsSingle();
+            Container.BindInterfacesTo<CoinView>().FromComponentInHierarchy().AsSingle();
+
+            //Touch
+            Container.BindInterfacesTo<TouchView>().FromComponentInHierarchy().AsSingle();
+
+            //GamaManager
+            Container.BindInterfacesTo<GameManager>().AsSingle();
+            Container.BindInitializableExecutionOrder<GameManager>(100);
         }
     }
 }
