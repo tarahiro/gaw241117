@@ -13,5 +13,9 @@ namespace gaw241117.View
     public interface ICoinView
     {
         void SetInputAcceptable();
+
+#if ENABLE_DEBUG
+        void ForceCoinDirection(bool isHead);
+#endif
     }
 }

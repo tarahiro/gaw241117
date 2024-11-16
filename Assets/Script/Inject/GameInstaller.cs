@@ -28,6 +28,12 @@ namespace gaw241117.Inject
             //Touch
             Container.BindInterfacesTo<TouchView>().FromComponentInHierarchy().AsSingle();
 
+#if ENABLE_DEBUG
+            //Debug
+            Container.BindInterfacesTo<DebugManager>().AsSingle();
+#endif
+
+
             //GamaManager
             Container.BindInterfacesTo<GameManager>().AsSingle();
             Container.BindInitializableExecutionOrder<GameManager>(100);
