@@ -13,10 +13,11 @@ namespace gaw241117.View
 {
     public class CoinView : MonoBehaviour,ICoinView
     {
+        [SerializeField] Rigidbody _rigidbody;
+        [Inject] IStandstillable _standstillable;
         [Inject] ITouchView _touchView;
         [Inject] IIsHeadUiView _isTailUiView;
 
-        [SerializeField] Rigidbody _rigidbody;
         [SerializeField] Transform _normalObject;
 
         bool _isInputAcceptable = false;
@@ -47,84 +48,6 @@ namespace gaw241117.View
         }
 
 
-        List<Vector3> _prevPositionList;
-        List<Quaternion> _prevQuaternionList;
-        const int c_saveCoordinateFrame = 3;
-
-        void FixedUpdate()
-        {
-            if (_isCoinMoving)
-            {
-                SaveCoordinate();
-
-                if (IsStandstill())
-                {
-                    _isCoinMoving = false;
-                    _isTailUiView.Show(IsHead()).Forget();
-                }
-
-                /*
-
-                if (!_isCoinRigidbodyPropertySaved)
-                {
-                    _isCoinRigidbodyPropertySaved = true;
-
-                }
-                else
-                {
-                    if (_rigidbody.position == _prevPosition && _rigidbody.rotation == _prevQuaternion)
-                    {
-                        _isCoinMoving = false;
-                        _isTailUiView.Show(IsHead()).Forget();
-                    }
-                    else
-                    {
-                        SaveCoordinate();
-                    }
-                }
-                */
-            }
-        }
-
-        void SaveCoordinate()
-        {
-            _prevPositionList.Add(_rigidbody.position);
-            _prevQuaternionList.Add(_rigidbody.rotation);
-
-            if (_prevPositionList.Count > c_saveCoordinateFrame)
-            {
-                _prevPositionList.RemoveAt(0);
-            }
-            if (_prevQuaternionList.Count > c_saveCoordinateFrame)
-            {
-                _prevQuaternionList.RemoveAt(0);
-            }
-        }
-
-        bool IsStandstill()
-        {
-            if (_prevPositionList.Count < c_saveCoordinateFrame)
-            {
-                return false;
-            }
-            if (_prevQuaternionList.Count < c_saveCoordinateFrame)
-            {
-                return false;
-            }
-
-
-            if (!_prevPositionList.TrueForAll(x => x == _prevPositionList[0]))
-            {
-                return false;
-            }
-            if (!_prevQuaternionList.TrueForAll(x => x == _prevQuaternionList[0]))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
         void ThrowCoin()
         {
             Vector2 dir = _touchView.ScreenPoint - _touchView.BeginScreenPoint;
@@ -134,15 +57,15 @@ namespace gaw241117.View
             _rigidbody.AddForce(new Vector3(x, c_fakeYDirectionForceLengh, z), ForceMode.Impulse);
             _rigidbody.AddTorque(Vector3.right * Mathf.PI / 4f, ForceMode.Impulse);
 
-            OnThrowCoin();
+            OnThrowCoin().Forget();
         }
 
-        void OnThrowCoin()
+        async UniTask OnThrowCoin()
         {
             _isCoinMoving = true;
-            _isCoinRigidbodyPropertySaved = false;
-            _prevPositionList = new List<Vector3>();
-            _prevQuaternionList = new List<Quaternion>();
+            await _standstillable.WaitUntilStandstill();
+            _isTailUiView.Show(IsHead()).Forget();
+            _isCoinMoving = false;
         }
 
         bool IsHead()
@@ -184,7 +107,7 @@ namespace gaw241117.View
             _rigidbody.position = Vector3.up * c_ForceDirectionHeight;
             _rigidbody.rotation = Quaternion.identity;
 
-            OnThrowCoin();
+            OnThrowCoin().Forget();
 
         }
 #endif
