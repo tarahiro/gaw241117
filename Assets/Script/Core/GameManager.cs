@@ -11,10 +11,11 @@ namespace gaw241117
 {
     public class GameManager : IInitializable
     {
-        [Inject] ICoinAdapter _coin;
+        [Inject] IManagerToModelAdapter _coin;
         public void Initialize()
         {
-            _coin.StartCoin();
+            Log.DebugLog("InitializeModel");
+            _coin.Enter();
         }
     }
 }

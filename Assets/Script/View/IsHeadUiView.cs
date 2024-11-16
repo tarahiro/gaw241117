@@ -17,7 +17,7 @@ namespace gaw241117.View
     {
         [SerializeField] TextMeshProUGUI _text;
 
-        const float c_textDisplayTime = 3f;
+        const float c_textDisplayTime = 1f;
 
         public void Start()
         {

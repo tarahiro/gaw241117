@@ -18,8 +18,12 @@ namespace gaw241117.Inject
         public override void InstallBindings()
         {
 
+            //Title
+            Container.BindInterfacesTo<TitleModel>().AsSingle();
+            Container.Bind<TitlePresenter>().FromComponentInHierarchy().AsSingle();
+
+
             //Coin
-            Container.BindInterfacesTo<CoinAdapter>().AsSingle();
             Container.BindInterfacesTo<CoinModel>().AsSingle();
             Container.BindInterfacesTo<CoinPresenter>().AsSingle();
             Container.BindInterfacesTo<CoinView>().FromComponentInHierarchy().AsSingle();
@@ -36,6 +40,7 @@ namespace gaw241117.Inject
 
 
             //GamaManager
+            Container.BindInterfacesTo<ManagerToModelAdapter>().AsSingle();
             Container.BindInterfacesTo<GameManager>().AsSingle();
             Container.BindInitializableExecutionOrder<GameManager>(100);
         }

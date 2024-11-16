@@ -9,8 +9,8 @@ using Zenject;
 
 namespace gaw241117
 {
-    public interface ICoinAdapter
+    public interface IManagerToModelAdapter
     {
-        void StartCoin();
+        void Enter();
     }
 }

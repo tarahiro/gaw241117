@@ -10,10 +10,10 @@ using Zenject;
 
 namespace gaw241117.Model
 {
-    public class CoinAdapter : ICoinAdapter
+    public class ManagerToModelAdapter : IManagerToModelAdapter
     {
-        [Inject] ICoinModel _model;
-        public void StartCoin()
+        [Inject] ITitleModel _model;
+        public void Enter()
         {
             _model.EnterModel();
         }
