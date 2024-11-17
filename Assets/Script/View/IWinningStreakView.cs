@@ -10,14 +10,10 @@ using Zenject;
 
 namespace gaw241117.View
 {
-    public interface ICoinView
+    public interface IWinningStreakView
     {
-        void SetInputAcceptable();
 
-        void InitializeSettle(Action headed, Action tailed);
-
-#if ENABLE_DEBUG
-        void ForceCoinDirection(bool isHead);
-#endif
+        void AddStreak(int _streakCount);
+        void ResetStreak();
     }
 }

@@ -16,7 +16,6 @@ namespace gaw241117.View
         [SerializeField] Rigidbody _rigidbody;
         [Inject] IStandstillable _standstillable;
         [Inject] ITouchView _touchView;
-        [Inject] IIsHeadUiView _isTailUiView;
 
         [SerializeField] Transform _normalObject;
 
@@ -26,6 +25,16 @@ namespace gaw241117.View
         const float c_fakeXzDirectionMaxForceLengh = .01f;
         const float c_fakeXyScreenPointMaxLength = 500f;
         const float c_fakeYDirectionForceLengh = .03f;
+
+
+        event Action _headed;
+        event Action _tailed;
+
+        public void InitializeSettle(Action headed, Action tailed)
+        {
+            _headed += headed;
+            _tailed += tailed;
+        }
 
         public void SetInputAcceptable()
         {
@@ -76,7 +85,14 @@ namespace gaw241117.View
 
         void OnCoinStop()
         {
-            _isTailUiView.Show(IsHead()).Forget();
+            if (IsHead())
+            {
+                _headed.Invoke();
+            }
+            else
+            {
+                _tailed.Invoke();
+            }
             _isCoinTurning = false;
         }
 

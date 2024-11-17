@@ -10,6 +10,7 @@ using gaw241117;
 using gaw241117.Model;
 using gaw241117.Presenter;
 using gaw241117.View;
+using gaw241110.presenter;
 
 namespace gaw241117.Inject
 {
@@ -21,6 +22,11 @@ namespace gaw241117.Inject
             //Title
             Container.BindInterfacesTo<TitleModel>().AsSingle();
             Container.Bind<TitlePresenter>().FromComponentInHierarchy().AsSingle();
+
+            //WinCount
+            Container.BindInterfacesTo<WinCountModel>().AsSingle();
+            Container.BindInterfacesTo<WinCountPresenter>().AsSingle();
+            Container.BindInterfacesTo<WinningStreakView>().FromComponentInHierarchy().AsSingle();
 
 
             //Coin

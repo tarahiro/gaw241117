@@ -14,5 +14,6 @@ namespace gaw241117.Model
     {
         void Win();
         void Lose();
+        void InitializeModel(Action winned, Action losed, Action<int> winningStreaked, Action streakStopped);
     }
 }
