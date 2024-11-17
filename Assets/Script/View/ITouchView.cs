@@ -15,8 +15,10 @@ namespace gaw241117.View
         TouchConst.TouchState State { get; }
 
         Vector2 BeginScreenPoint { get; }
-        Vector2 PrevScreenPoint { get; }
-        Vector2 ScreenPoint { get; }
+        Vector2 PrevScreenPoint(int frameCount);
+        Vector2 ScreenPointOnThisFrame { get; }
         float TimeFromBegin();
+        float PrevTime(int frameCount);
+        float TimeOnThisFrame { get; }
     }
 }

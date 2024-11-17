@@ -14,11 +14,14 @@ namespace gaw241117.View
     public class TouchView : MonoBehaviour, ITouchView
     {
         float _beginTime;
+        const int c_storedFrameCount = 100;
+        List<Vector2> _prevPositionList = new List<Vector2>();
+        List<float> _prevTimeList = new List<float>();
 
         public TouchConst.TouchState State { get; private set; } = TouchConst.TouchState.None;
         public Vector2 BeginScreenPoint { get; private set; }
-        public Vector2 PrevScreenPoint { get; private set; }
-        public Vector2 ScreenPoint { get; private set; }
+        public Vector2 ScreenPointOnThisFrame => _prevPositionList[_prevPositionList.Count - 1];
+        public float TimeOnThisFrame => _prevTimeList[_prevTimeList.Count - 1];
 
         public float TimeFromBegin()
         {
@@ -32,8 +35,17 @@ namespace gaw241117.View
 
         void Update()
         {
-            PrevScreenPoint = ScreenPoint;
-            ScreenPoint = (Vector2)Input.mousePosition;
+            _prevPositionList.Add((Vector2)Input.mousePosition);
+            _prevTimeList.Add(Time.time);
+
+            if(_prevPositionList.Count > c_storedFrameCount)
+            {
+                _prevPositionList.RemoveAt(0);
+            }
+            if (_prevTimeList.Count > c_storedFrameCount)
+            {
+                _prevTimeList.RemoveAt(0);
+            }
 
             switch (State)
             {
@@ -110,6 +122,14 @@ namespace gaw241117.View
                     break;
             }
         }
+        public Vector2 PrevScreenPoint(int frameCount)
+        {
+            return _prevPositionList[_prevPositionList.Count - 1 - frameCount];
+        }
+        public float PrevTime(int frameCount)
+        {
+            return _prevTimeList[_prevTimeList.Count - 1 - frameCount];
+        }
 
         void ChangeTouchState(TouchConst.TouchState state)
         {
@@ -149,7 +169,7 @@ namespace gaw241117.View
         {
             State = TouchConst.TouchState.Begin;
             _beginTime = Time.time;
-            BeginScreenPoint = ScreenPoint;
+            BeginScreenPoint = ScreenPointOnThisFrame;
         }
 
         void Touching()

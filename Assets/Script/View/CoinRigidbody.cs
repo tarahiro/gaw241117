@@ -10,19 +10,25 @@ using Zenject;
 
 namespace gaw241117.View
 {
-    public class StandstillObject : MonoBehaviour, IStandstillable
+    public class CoinRigidbody : MonoBehaviour, ICoinRigidbody
     {
         [SerializeField] Rigidbody _rigidbody;
+        [SerializeField] Transform _normalObject;
 
         const int c_saveCoordinateFrame = 3;
 
         bool _isCoinMoving = false;
+        bool _initialHead;
         List<Vector3> _prevPositionList;
         List<Quaternion> _prevQuaternionList;
+
+        public bool IsTurned { get; private set; }
 
         public async UniTask WaitUntilStandstill()
         {
             _isCoinMoving = true;
+            IsTurned = false;
+            _initialHead = IsHead();
             _prevPositionList = new List<Vector3>();
             _prevQuaternionList = new List<Quaternion>();
             await UniTask.WaitUntil(()=>!_isCoinMoving);
@@ -34,6 +40,15 @@ namespace gaw241117.View
             if (_isCoinMoving)
             {
                 SaveCoordinate();
+
+                if (!IsTurned)
+                {
+                    if(IsHead() != _initialHead)
+                    {
+                        IsTurned = true;
+                    }
+                }
+
 
                 if (IsStandstill())
                 {
@@ -79,6 +94,15 @@ namespace gaw241117.View
             }
 
             return true;
+        }
+        public bool IsHead()
+        {
+            return Normal().y > 0f;
+        }
+
+        Vector3 Normal()
+        {
+            return (_normalObject.position - transform.position).normalized;
         }
     }
 }

@@ -19,5 +19,13 @@ namespace gaw241117.View
             Touching,
             End,
         }
+        public enum FlickState
+        {
+            None,
+            Begin,
+            Flicking,
+            Stop, //タッチしながらフリックをやめたとき
+            End, //タッチを外したとき
+        }
     }
 }

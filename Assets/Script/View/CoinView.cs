@@ -14,17 +14,14 @@ namespace gaw241117.View
     public class CoinView : MonoBehaviour,ICoinView
     {
         [SerializeField] Rigidbody _rigidbody;
-        [Inject] IStandstillable _standstillable;
+        [Inject] ICoinRigidbody _coinRigidbody;
         [Inject] ITouchView _touchView;
+        [Inject] IFlickView _flickView;
 
-        [SerializeField] Transform _normalObject;
 
         bool _isInputAcceptable = false;
         bool _isCoinTurning = false;
         bool _isCoinRigidbodyPropertySaved = false;
-        const float c_fakeXzDirectionMaxForceLengh = .01f;
-        const float c_fakeXyScreenPointMaxLength = 500f;
-        const float c_fakeYDirectionForceLengh = .03f;
 
 
         event Action _headed;
@@ -58,20 +55,26 @@ namespace gaw241117.View
 
         async UniTask PrepareThrowCoin()
         {
-            await UniTask.WaitUntil(() => _touchView.State == TouchConst.TouchState.End);
+            await UniTask.WaitUntil(() => _flickView.State == TouchConst.FlickState.End);
             ThrowCoin();
         }
 
 
+        const float c_fakeXzDirectionMaxForceLengh = .01f;
+        const float c_fakeXyScreenSpeedMaxLength = 10000f;
+        const float c_fakeYDirectionForceLengh = .03f;
 
         void ThrowCoin()
         {
-            Vector2 dir = _touchView.ScreenPoint - _touchView.BeginScreenPoint;
-            float xzForceLength = c_fakeXzDirectionMaxForceLengh * Mathf.Min(dir.magnitude / c_fakeXyScreenPointMaxLength, 1f);
+            // Vector2 dir = _touchView.ScreenPointOnThisFrame - _touchView.BeginScreenPoint;
+            Vector2 dir = _flickView.VectorFromBegin() / _flickView.TimeFromBegin();
+            float forceRate = Mathf.Min(dir.magnitude / c_fakeXyScreenSpeedMaxLength, 1f);
+            float xzForceLength = c_fakeXzDirectionMaxForceLengh * forceRate;
             float x = xzForceLength * dir.x / dir.magnitude;
             float z = xzForceLength * dir.y / dir.magnitude;
-            _rigidbody.AddForce(new Vector3(x, c_fakeYDirectionForceLengh, z), ForceMode.Impulse);
-            _rigidbody.AddTorque(Vector3.right * Mathf.PI / 4f, ForceMode.Impulse);
+            _rigidbody.AddForce(new Vector3(x, c_fakeYDirectionForceLengh * forceRate, z), ForceMode.Impulse);
+            _rigidbody.AddTorque(Vector3.right * Mathf.PI / 40f * forceRate , ForceMode.Impulse);
+            Log.DebugLog( dir.magnitude.ToString());
 
             TurningCoin().Forget();
         }
@@ -79,32 +82,26 @@ namespace gaw241117.View
         async UniTask TurningCoin()
         {
             _isCoinTurning = true;
-            await _standstillable.WaitUntilStandstill();
+            await _coinRigidbody.WaitUntilStandstill();
             OnCoinStop();
         }
 
         void OnCoinStop()
         {
-            if (IsHead())
+            if (_coinRigidbody.IsTurned)
             {
-                _headed.Invoke();
-            }
-            else
-            {
-                _tailed.Invoke();
+                if (_coinRigidbody.IsHead())
+                {
+                    _headed.Invoke();
+                }
+                else
+                {
+                    _tailed.Invoke();
+                }
             }
             _isCoinTurning = false;
         }
 
-        bool IsHead()
-        {
-            return Normal().y > 0f;
-        }
-
-        Vector3 Normal()
-        {
-           return (_normalObject.position - transform.position).normalized;
-        }
 
 
 #if ENABLE_DEBUG

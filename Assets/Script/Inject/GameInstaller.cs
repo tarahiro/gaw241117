@@ -38,11 +38,12 @@ namespace gaw241117.Inject
             Container.BindInterfacesTo<CoinModel>().AsSingle();
             Container.BindInterfacesTo<CoinPresenter>().AsSingle();
             Container.BindInterfacesTo<CoinView>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesTo<StandstillObject>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesTo<CoinRigidbody>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesTo<IsHeadUiView>().FromComponentInHierarchy().AsSingle();
 
             //Touch
             Container.BindInterfacesTo<TouchView>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesTo<FlickView>().FromComponentInHierarchy().AsSingle();
 
 #if ENABLE_DEBUG
             //Debug
