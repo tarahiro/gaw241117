@@ -59,6 +59,7 @@ namespace gaw241110.presenter
         void OnVictoried()
         {
             _clearView.Clear();
+            _coinView.SetInputAcceptable(false);
         }
     }
 }

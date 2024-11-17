@@ -110,7 +110,7 @@ namespace gaw241117.View
             _state = state;
         }
 
-        const int c_averagedFrameCount = 20;
+        const int c_averagedFrameCount = 10;
 
         float CursorSpeed()
         {

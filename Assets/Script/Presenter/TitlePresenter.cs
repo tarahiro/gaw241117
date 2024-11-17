@@ -17,6 +17,7 @@ namespace gaw241117.Presenter
     {
         [Inject] ITitleModel _model;
         [SerializeField] Button _button;
+        [SerializeField] GameObject _uiRoot;
 
         //ButtonがViewになるので、個別のViewは用意しない
         //必要になったら用意する
@@ -31,7 +32,7 @@ namespace gaw241117.Presenter
         }
         void OnExitTitle()
         {
-            _button.gameObject.SetActive(false);
+            _uiRoot.SetActive(false);
         }
 
         void OnClick()

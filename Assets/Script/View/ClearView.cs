@@ -29,6 +29,7 @@ namespace gaw241117.View
         public void Clear()
         {
             _uiRoot.SetActive(true);
+            SoundManager.PlaySE("Joy");
         }
 
         public void OnClick()

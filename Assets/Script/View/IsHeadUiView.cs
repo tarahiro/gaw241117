@@ -17,7 +17,7 @@ namespace gaw241117.View
     {
         [SerializeField] TextMeshProUGUI _text;
 
-        const float c_textDisplayTime = 1f;
+        const float c_textDisplayTime = .7f;
 
         public void Start()
         {
@@ -27,7 +27,8 @@ namespace gaw241117.View
         public async UniTask Show(bool isHead)
         {
             _text.gameObject.SetActive(true);
-            _text.text = isHead ? "Ç®Ç‡Çƒ" : "Ç§ÇÁ";
+            _text.text = isHead ? "Ç®Ç‡ÇƒÅI" : "Ç§ÇÁÅc";
+            SoundManager.PlaySE(isHead ? "Win" : "Lose");
             await UniTask.WaitForSeconds(c_textDisplayTime);
             _text.gameObject.SetActive(false);
         }

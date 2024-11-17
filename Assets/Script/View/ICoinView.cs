@@ -12,7 +12,7 @@ namespace gaw241117.View
 {
     public interface ICoinView
     {
-        void SetInputAcceptable();
+        void SetInputAcceptable(bool isAcceptable);
 
         void InitializeSettle(Action headed, Action tailed);
 

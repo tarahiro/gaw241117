@@ -14,6 +14,7 @@ namespace gaw241117.View
     public class CoinView : MonoBehaviour,ICoinView
     {
         [SerializeField] Rigidbody _rigidbody;
+        [SerializeField] GameObject _guideObject;
         [Inject] ICoinRigidbody _coinRigidbody;
         [Inject] ITouchView _touchView;
         [Inject] IFlickView _flickView;
@@ -33,9 +34,15 @@ namespace gaw241117.View
             _tailed += tailed;
         }
 
-        public void SetInputAcceptable()
+        public void SetInputAcceptable(bool isAcceptable)
         {
-            _isInputAcceptable = true;
+            _isInputAcceptable = isAcceptable;
+            _guideObject.SetActive(isAcceptable);
+        }
+
+        void Start()
+        {
+            _guideObject.SetActive(false);
         }
 
 
@@ -45,9 +52,8 @@ namespace gaw241117.View
             {
                 if (!_isCoinTurning)
                 {
-                    if (_touchView.State == TouchConst.TouchState.Begin)
-                    {
-                        PrepareThrowCoin().Forget();
+                    if (_touchView.State == TouchConst.TouchState.Begin) { 
+                            PrepareThrowCoin().Forget();
                     }
                 }
             }
@@ -66,7 +72,8 @@ namespace gaw241117.View
 
         void ThrowCoin()
         {
-            // Vector2 dir = _touchView.ScreenPointOnThisFrame - _touchView.BeginScreenPoint;
+
+
             Vector2 dir = _flickView.VectorFromBegin() / _flickView.TimeFromBegin();
             float forceRate = Mathf.Min(dir.magnitude / c_fakeXyScreenSpeedMaxLength, 1f);
             float xzForceLength = c_fakeXzDirectionMaxForceLengh * forceRate;
@@ -82,12 +89,18 @@ namespace gaw241117.View
         async UniTask TurningCoin()
         {
             _isCoinTurning = true;
+            _guideObject.SetActive(false);
+            SoundManager.PlaySE("StartCoin");
+
             await _coinRigidbody.WaitUntilStandstill();
             OnCoinStop();
         }
 
         void OnCoinStop()
         {
+            _isCoinTurning = false;
+            _guideObject.SetActive(true);
+
             if (_coinRigidbody.IsTurned)
             {
                 if (_coinRigidbody.IsHead())
@@ -99,7 +112,6 @@ namespace gaw241117.View
                     _tailed.Invoke();
                 }
             }
-            _isCoinTurning = false;
         }
 
 

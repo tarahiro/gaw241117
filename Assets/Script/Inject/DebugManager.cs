@@ -13,6 +13,7 @@ using gaw241117.View;
 
 namespace gaw241117.Inject
 {
+#if ENABLE_DEBUG
     public class DebugManager: ITickable
     {
         [Inject] ICoinView _coinView;
@@ -25,4 +26,5 @@ namespace gaw241117.Inject
             }
         }
     }
+#endif
 }

@@ -24,7 +24,8 @@ namespace gaw241117.Presenter
 
         void OnEnterModel()
         {
-            _view.SetInputAcceptable();
+            _view.SetInputAcceptable(true);
         }
+
     }
 }

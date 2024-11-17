@@ -1,6 +1,5 @@
 using Cysharp.Threading.Tasks;
 using gaw241117;
-using PlasticGui.WorkspaceWindow.Locks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +7,7 @@ using Tarahiro;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using static gaw241117.View.InputPlatformUtility;
 
 namespace gaw241117.View
 {
@@ -35,7 +35,7 @@ namespace gaw241117.View
 
         void Update()
         {
-            _prevPositionList.Add((Vector2)Input.mousePosition);
+            _prevPositionList.Add(TouchPosition());
             _prevTimeList.Add(Time.time);
 
             if(_prevPositionList.Count > c_storedFrameCount)
@@ -50,46 +50,46 @@ namespace gaw241117.View
             switch (State)
             {
                 case TouchConst.TouchState.None:
-                    if (Input.GetMouseButtonDown(0))
+                    if (IsTouchDown())
                     {
                         ChangeTouchState(TouchConst.TouchState.Begin);
                     }
-                    else if (Input.GetMouseButton(0))
+                    else if (IsTouch())
                     {
                         Log.DebugWarning("不正にタッチが継続しています");
                         ChangeTouchState(TouchConst.TouchState.Begin);
                     }
-                    else if (Input.GetMouseButtonUp(0))
+                    else if (IsTouchUp())
                     {
                         Log.DebugWarning("不正にタッチが終了しました");
                     }
                     break;
 
                 case TouchConst.TouchState.Begin:
-                    if (Input.GetMouseButton(0))
+                    if (IsTouch())
                     {
                         ChangeTouchState(TouchConst.TouchState.Touching);
                     }
-                    else if (Input.GetMouseButtonUp(0))
+                    else if (IsTouchUp())
                     {
                         ChangeTouchState(TouchConst.TouchState.End);
                     }
                     else
                     {
-                        Log.DebugWarning("不正にタッチが終了しました");
+                        Log.DebugWarning("不正にタッチが開始されました");
                         ChangeTouchState(TouchConst.TouchState.End);
                     }
                     break;
 
                 case TouchConst.TouchState.Touching:
-                    if (Input.GetMouseButton(0))
+                    if (IsTouch())
                     {
                     }
-                    else if (Input.GetMouseButtonUp(0))
+                    else if (IsTouchUp())
                     {
                         ChangeTouchState(TouchConst.TouchState.End);
                     }
-                    else if (Input.GetMouseButtonDown(0))
+                    else if (IsTouchDown())
                     {
                         Log.DebugWarning("不正にタッチが開始されました");
                         ChangeTouchState(TouchConst.TouchState.Begin);
@@ -97,16 +97,16 @@ namespace gaw241117.View
                     break;
 
                 case TouchConst.TouchState.End:
-                    if (Input.GetMouseButton(0))
+                    if (IsTouch())
                     {
                         Log.DebugWarning("不正にタッチが継続しています");
                         ChangeTouchState(TouchConst.TouchState.Begin);
                     }
-                    else if (Input.GetMouseButtonUp(0))
+                    else if (IsTouchUp())
                     {
                         Log.DebugWarning("不正にタッチが終了しました");
                     }
-                    else if (Input.GetMouseButtonDown(0))
+                    else if (IsTouchDown())
                     {
                         ChangeTouchState(TouchConst.TouchState.Begin);
                     }
@@ -124,11 +124,27 @@ namespace gaw241117.View
         }
         public Vector2 PrevScreenPoint(int frameCount)
         {
-            return _prevPositionList[_prevPositionList.Count - 1 - frameCount];
+            if (_prevPositionList.Count - 1 < frameCount)
+            {
+                Log.DebugLog("指定されたフレームのデータが存在しません");
+                return _prevPositionList[0];
+            }
+            else
+            {
+                return _prevPositionList[_prevPositionList.Count - 1 - frameCount];
+            }
         }
         public float PrevTime(int frameCount)
         {
-            return _prevTimeList[_prevTimeList.Count - 1 - frameCount];
+            if (_prevTimeList.Count - 1 < frameCount)
+            {
+                Log.DebugLog("指定されたフレームのデータが存在しません");
+                return _prevTimeList[0];
+            }
+            else
+            {
+                return _prevTimeList[_prevTimeList.Count - 1 - frameCount];
+            }
         }
 
         void ChangeTouchState(TouchConst.TouchState state)
@@ -157,6 +173,8 @@ namespace gaw241117.View
                     Log.DebugWarning("不正なステートです");
                     break;
             }
+
+            Log.DebugLog(state.ToString());
         }
 
         void NoneTouch()

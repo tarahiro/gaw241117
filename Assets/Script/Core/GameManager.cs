@@ -14,6 +14,7 @@ namespace gaw241117
         [Inject] IManagerToModelAdapter _coin;
         public void Initialize()
         {
+            SoundManager.PlayBGM("Main");
             _coin.Enter();
         }
     }
