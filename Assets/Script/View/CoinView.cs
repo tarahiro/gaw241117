@@ -39,12 +39,29 @@ namespace gaw241117.View
             {
                 if (!_isCoinMoving)
                 {
-                    if (_touchView.State == TouchConst.TouchState.End)
+                    if (_touchView.State == TouchConst.TouchState.Begin)
                     {
-                        ThrowCoin();
+                        PrepareThrowCoin().Forget();
                     }
                 }
             }
+        }
+
+        async UniTask PrepareThrowCoin()
+        {
+            await UniTask.WaitUntil(() => _touchView.State == TouchConst.TouchState.End);
+            ThrowCoin();
+        }
+
+        void IsInputCoinThrown()
+        {
+            //ゲームを開始した時以降に、タッチを開始していたら、有効な入力とみなす
+
+            //タッチ終了時、タッチの長さが一定の範囲だったら、有効な入力とみなす
+            //タッチ終了時、移動距離が一定の長さ以上だったら、有効な入力とみなす
+
+            //できれば ベジエ曲線的なものを作り、それに応じて変化できるようにしたい
+            //できれば 矢印を出したい
         }
 
 

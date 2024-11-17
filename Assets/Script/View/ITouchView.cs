@@ -17,5 +17,6 @@ namespace gaw241117.View
         Vector2 BeginScreenPoint { get; }
         Vector2 PrevScreenPoint { get; }
         Vector2 ScreenPoint { get; }
+        float TimeFromBegin();
     }
 }

@@ -14,7 +14,6 @@ namespace gaw241117
         [Inject] IManagerToModelAdapter _coin;
         public void Initialize()
         {
-            Log.DebugLog("InitializeModel");
             _coin.Enter();
         }
     }

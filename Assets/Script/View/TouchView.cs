@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using gaw241117;
+using PlasticGui.WorkspaceWindow.Locks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,8 +13,22 @@ namespace gaw241117.View
 {
     public class TouchView : MonoBehaviour, ITouchView
     {
-        public TouchConst.TouchState State { get; private set; } = TouchConst.TouchState.None;
+        float _beginTime;
 
+        public TouchConst.TouchState State { get; private set; } = TouchConst.TouchState.None;
+        public Vector2 BeginScreenPoint { get; private set; }
+        public Vector2 PrevScreenPoint { get; private set; }
+        public Vector2 ScreenPoint { get; private set; }
+
+        public float TimeFromBegin()
+        {
+            if(State == TouchConst.TouchState.None)
+            {
+                Log.DebugLog("不正なタイミングで時間が要求されています");
+            }
+
+            return Time.time - _beginTime;
+        }
 
         void Update()
         {
@@ -133,6 +148,7 @@ namespace gaw241117.View
         void BeginTouch()
         {
             State = TouchConst.TouchState.Begin;
+            _beginTime = Time.time;
             BeginScreenPoint = ScreenPoint;
         }
 
@@ -147,9 +163,5 @@ namespace gaw241117.View
             State = TouchConst.TouchState.End;
         }
 
-
-        public Vector2 BeginScreenPoint { get; private set; }
-        public Vector2 PrevScreenPoint { get; private set; }
-        public Vector2 ScreenPoint { get; private set; }
     }
 }
