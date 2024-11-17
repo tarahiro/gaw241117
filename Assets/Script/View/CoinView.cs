@@ -21,7 +21,7 @@ namespace gaw241117.View
         [SerializeField] Transform _normalObject;
 
         bool _isInputAcceptable = false;
-        bool _isCoinMoving = false;
+        bool _isCoinTurning = false;
         bool _isCoinRigidbodyPropertySaved = false;
         const float c_fakeXzDirectionMaxForceLengh = .01f;
         const float c_fakeXyScreenPointMaxLength = 500f;
@@ -37,7 +37,7 @@ namespace gaw241117.View
         {
             if (_isInputAcceptable)
             {
-                if (!_isCoinMoving)
+                if (!_isCoinTurning)
                 {
                     if (_touchView.State == TouchConst.TouchState.Begin)
                     {
@@ -53,16 +53,6 @@ namespace gaw241117.View
             ThrowCoin();
         }
 
-        void IsInputCoinThrown()
-        {
-            //ゲームを開始した時以降に、タッチを開始していたら、有効な入力とみなす
-
-            //タッチ終了時、タッチの長さが一定の範囲だったら、有効な入力とみなす
-            //タッチ終了時、移動距離が一定の長さ以上だったら、有効な入力とみなす
-
-            //できれば ベジエ曲線的なものを作り、それに応じて変化できるようにしたい
-            //できれば 矢印を出したい
-        }
 
 
         void ThrowCoin()
@@ -74,15 +64,20 @@ namespace gaw241117.View
             _rigidbody.AddForce(new Vector3(x, c_fakeYDirectionForceLengh, z), ForceMode.Impulse);
             _rigidbody.AddTorque(Vector3.right * Mathf.PI / 4f, ForceMode.Impulse);
 
-            OnThrowCoin().Forget();
+            TurningCoin().Forget();
         }
 
-        async UniTask OnThrowCoin()
+        async UniTask TurningCoin()
         {
-            _isCoinMoving = true;
+            _isCoinTurning = true;
             await _standstillable.WaitUntilStandstill();
+            OnCoinStop();
+        }
+
+        void OnCoinStop()
+        {
             _isTailUiView.Show(IsHead()).Forget();
-            _isCoinMoving = false;
+            _isCoinTurning = false;
         }
 
         bool IsHead()
@@ -95,26 +90,6 @@ namespace gaw241117.View
            return (_normalObject.position - transform.position).normalized;
         }
 
-                
-
-        void MouseInput()
-        {
-            //マウス速度によって、xy方向の初速が変化。遅すぎると、飛ばない
-            //マウス方向によって、xy方向のベクトルが変化
-            //z方向の初速は変化なし
-
-            //Input.GetTouch(0).phase
-
-            //以下は必須
-            //いい感じに回転する
-
-
-           
-            //以下はやれたらやる
-            //マウスを引いた状態でクリックすると、コインも少し引いた感じになる
-            //マウスの軌跡が直線でないと、汚い回転になる
-
-        }
 
 #if ENABLE_DEBUG
 
@@ -124,7 +99,7 @@ namespace gaw241117.View
             _rigidbody.position = Vector3.up * c_ForceDirectionHeight;
             _rigidbody.rotation = Quaternion.identity;
 
-            OnThrowCoin().Forget();
+            TurningCoin().Forget();
 
         }
 #endif

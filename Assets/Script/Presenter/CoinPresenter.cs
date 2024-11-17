@@ -19,7 +19,6 @@ namespace gaw241117.Presenter
 
         public void Initialize()
         {
-            Log.DebugLog("CoinPresenter");
             _model.InitializeModel(OnEnterModel);
         }
 
