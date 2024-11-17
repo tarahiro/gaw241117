@@ -29,6 +29,11 @@ namespace gaw241117.Inject
             Container.BindInterfacesTo<WinningStreakView>().FromComponentInHierarchy().AsSingle();
 
 
+            //Clear
+            Container.BindInterfacesTo<ClearModel>().AsSingle();
+            Container.BindInterfacesTo<ClearPresenter>().AsSingle();
+            Container.BindInterfacesTo<ClearView>().FromComponentInHierarchy().AsSingle();
+
             //Coin
             Container.BindInterfacesTo<CoinModel>().AsSingle();
             Container.BindInterfacesTo<CoinPresenter>().AsSingle();

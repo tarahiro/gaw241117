@@ -19,13 +19,15 @@ namespace gaw241117.Model
         event Action _losed;
         event Action<int> _winningStreaked;
         event Action _streakStopped;
-        
-        public void InitializeModel(Action winned,Action losed, Action<int> winningStreaked, Action streakStopped)
+        event Action _victoried;
+
+        public void InitializeModel(Action winned,Action losed, Action<int> winningStreaked, Action streakStopped,Action victoried)
         {
             _winned += winned;
             _losed += losed;
             _winningStreaked += winningStreaked;
             _streakStopped += streakStopped;
+            _victoried += victoried;
         }
 
         public void Win()
@@ -36,7 +38,7 @@ namespace gaw241117.Model
 
             if (_winningStreakCount >= c_victoryNumber)
             {
-                Log.DebugLog("Victory");
+                _victoried();
             }
         }
         public void Lose()

@@ -10,10 +10,8 @@ using Zenject;
 
 namespace gaw241117.Model
 {
-    public interface IWinCountModel
+    public interface IClearModel
     {
-        void Win();
-        void Lose();
-        void InitializeModel(Action winned, Action losed, Action<int> winningStreaked, Action streakStopped, Action victoried);
+        void ToTitle();
     }
 }

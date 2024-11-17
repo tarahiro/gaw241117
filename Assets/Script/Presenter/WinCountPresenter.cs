@@ -18,11 +18,12 @@ namespace gaw241110.presenter
         [Inject] ICoinView _coinView;
         [Inject] IIsHeadUiView _isHeadUiView;
         [Inject] IWinningStreakView _winningStreakView;
+        [Inject] IClearView _clearView;
 
         public void Initialize()
         {
             _coinView.InitializeSettle(OnHead, OnTail);
-            _model.InitializeModel(OnWin, OnLose, OnWinningStreaked, OnStopStreak);
+            _model.InitializeModel(OnWin, OnLose, OnWinningStreaked, OnStopStreak, OnVictoried);
         }
 
         void OnHead()
@@ -53,6 +54,11 @@ namespace gaw241110.presenter
         void OnStopStreak()
         {
             _winningStreakView.ResetStreak();
+        }
+
+        void OnVictoried()
+        {
+            _clearView.Clear();
         }
     }
 }

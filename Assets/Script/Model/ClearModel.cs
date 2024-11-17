@@ -6,14 +6,16 @@ using System.Collections.Generic;
 using Tarahiro;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace gaw241117.Model
 {
-    public interface IWinCountModel
+    public class ClearModel : IClearModel
     {
-        void Win();
-        void Lose();
-        void InitializeModel(Action winned, Action losed, Action<int> winningStreaked, Action streakStopped, Action victoried);
+        public void ToTitle()
+        {
+            SceneManager.LoadScene("Main");
+        }
     }
 }
