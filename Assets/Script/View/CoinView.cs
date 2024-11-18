@@ -8,7 +8,8 @@ using Tarahiro.TInput;
 using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Zenject;
+using VContainer;
+using VContainer.Unity;
 
 namespace gaw241117.View
 {
@@ -17,8 +18,6 @@ namespace gaw241117.View
         [SerializeField] Rigidbody _rigidbody;
         [SerializeField] GameObject _guideObject;
         [Inject] ICoinRigidbody _coinRigidbody;
-        [Inject] ITouchView _touchView;
-        [Inject] IFlickView _flickView;
 
 
         bool _isInputAcceptable = false;
@@ -53,7 +52,7 @@ namespace gaw241117.View
             {
                 if (!_isCoinTurning)
                 {
-                    if (_touchView.State == TouchConst.TouchState.Begin) { 
+                    if (TTouch.GetInstance().State == TouchConst.TouchState.Begin) { 
                             PrepareThrowCoin().Forget();
                     }
                 }
@@ -62,7 +61,7 @@ namespace gaw241117.View
 
         async UniTask PrepareThrowCoin()
         {
-            await UniTask.WaitUntil(() => _flickView.State == TouchConst.FlickState.End);
+            await UniTask.WaitUntil(() => TFlick.GetInstance().State == TouchConst.FlickState.End);
             ThrowCoin();
         }
 
@@ -75,7 +74,7 @@ namespace gaw241117.View
         {
 
 
-            Vector2 dir = _flickView.VectorFromBegin() / _flickView.TimeFromBegin();
+            Vector2 dir = TFlick.GetInstance().VectorFromBegin() / TFlick.GetInstance().TimeFromBegin();
             float forceRate = Mathf.Min(dir.magnitude / c_fakeXyScreenSpeedMaxLength, 1f);
             float xzForceLength = c_fakeXzDirectionMaxForceLengh * forceRate;
             float x = xzForceLength * dir.x / dir.magnitude;

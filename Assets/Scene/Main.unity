@@ -661,63 +661,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4212310956238712816, guid: c5849c47d1711e84ea70be2fef7e301d, type: 3}
   m_PrefabInstance: {fileID: 629842964}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &311843083
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 311843085}
-  - component: {fileID: 311843084}
-  - component: {fileID: 311843086}
-  m_Layer: 0
-  m_Name: TouchVIew
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &311843084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311843083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cce81a4d4ae092e46969e738bf847b03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &311843085
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311843083}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08133948, y: 0.9981005, z: -0.14736056}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &311843086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311843083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbbc4880c27b87949b3cd8300deb1175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &322977520
 GameObject:
   m_ObjectHideFlags: 0
@@ -3928,8 +3871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2060441427}
-  - component: {fileID: 2060441426}
-  - component: {fileID: 2060441425}
+  - component: {fileID: 2060441428}
   m_Layer: 0
   m_Name: Context
   m_TagString: Untagged
@@ -3937,50 +3879,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2060441425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060441424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8f1cc81c75ce664db63bf03c0da79d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2060441426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060441424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 2060441425}
-  _installerPrefabs: []
-  _autoRun: 1
-  OnPreInstall:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPostInstall:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPreResolve:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPostResolve:
-    m_PersistentCalls:
-      m_Calls: []
-  _parentNewObjectsUnderSceneContext: 0
-  _contractNames: []
-  _parentContractNames: []
 --- !u!4 &2060441427
 Transform:
   m_ObjectHideFlags: 0
@@ -3996,6 +3894,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2060441428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060441424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f1cc81c75ce664db63bf03c0da79d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects:
+  - {fileID: 1650626738}
 --- !u!1001 &1902104074062770510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4102,7 +4017,6 @@ SceneRoots:
   - {fileID: 1301998423}
   - {fileID: 1851868235}
   - {fileID: 2060441427}
-  - {fileID: 311843085}
   - {fileID: 1120289945}
   - {fileID: 853286715}
   - {fileID: 1297522358}

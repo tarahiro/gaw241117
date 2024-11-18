@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using Tarahiro;
 using UniRx;
 using UnityEngine;
-using Zenject;
+using VContainer.Unity;
 using TMPro;
 using LitMotion;
 using LitMotion.Extensions;

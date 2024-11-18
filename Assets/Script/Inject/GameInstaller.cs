@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
+using VContainer.Unity;
 using Cysharp.Threading.Tasks;
 using Tarahiro;
 using UniRx;
@@ -12,11 +12,56 @@ using gaw241117.Presenter;
 using gaw241117.View;
 using gaw241110.presenter;
 using Tarahiro.TInput;
+using VContainer.Unity;
+using VContainer;
 
 namespace gaw241117.Inject
 {
-    public class GameInstaller : MonoInstaller
+    public class GameInstaller : LifetimeScope
     {
+        protected override void Configure(IContainerBuilder builder)
+        {
+
+            //Title
+            builder.Register<TitleModel>(Lifetime.Singleton).AsImplementedInterfaces();
+
+            //WinCount
+            builder.Register<WinCountModel>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.RegisterComponentInHierarchy<WinningStreakView>().AsImplementedInterfaces();
+
+
+            //Clear
+            builder.Register<ClearModel>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.RegisterComponentInHierarchy<ClearView>().AsImplementedInterfaces();
+
+            //Coin
+            builder.Register<CoinModel>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.RegisterComponentInHierarchy<CoinView>().AsImplementedInterfaces();
+            builder.RegisterComponentInHierarchy<CoinRigidbody>().AsImplementedInterfaces();
+            builder.RegisterComponentInHierarchy<IsHeadUiView>().AsImplementedInterfaces();
+
+            //Touch
+
+#if ENABLE_DEBUG
+            //Debug
+            builder.Register<DebugManager>(Lifetime.Singleton).AsImplementedInterfaces();
+#endif
+
+            //GamaManager
+            builder.Register<ManagerToModelAdapter>(Lifetime.Singleton).AsImplementedInterfaces();
+
+            builder.UseEntryPoints(Lifetime.Singleton, entryPoints =>
+            {
+                entryPoints.Add<GameManager>();
+                entryPoints.Add<ClearPresenter>();
+                entryPoints.Add<WinCountPresenter>();
+                entryPoints.Add<CoinPresenter>();
+                entryPoints.Add<TTouch>();
+                entryPoints.Add<TFlick>();
+            });
+
+        }
+        /*
         public override void InstallBindings()
         {
 
@@ -43,8 +88,8 @@ namespace gaw241117.Inject
             Container.BindInterfacesTo<IsHeadUiView>().FromComponentInHierarchy().AsSingle();
 
             //Touch
-            Container.BindInterfacesTo<TouchView>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesTo<FlickView>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesTo<TTouch>().AsSingle();
+            Container.BindInterfacesTo<TFlick>().AsSingle();
 
 #if ENABLE_DEBUG
             //Debug
@@ -57,5 +102,6 @@ namespace gaw241117.Inject
             Container.BindInterfacesTo<GameManager>().AsSingle();
             Container.BindInitializableExecutionOrder<GameManager>(100);
         }
+        */
     }
 }

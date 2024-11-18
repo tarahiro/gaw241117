@@ -3,9 +3,9 @@
     "rootNamespace": "gaw241117",
     "references": [
         "GUID:0be27b54e10228743974a8df3dda3639",
-        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
         "GUID:560b04d1a97f54a4e82edc0cbbb69285",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

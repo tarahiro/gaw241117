@@ -1,16 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tarahiro;
 using UnityEngine;
 using VContainer.Unity;
-using Cysharp.Threading.Tasks;
-using Tarahiro;
-using UniRx;
-using gaw241117;
+using static Tarahiro.TInput.TouchConst;
 
-namespace gaw241117.View
+namespace Tarahiro.TInput
 {
-    public class _ViewTemplate
+    public class TFlick : Singleton<MonoFlick>
     {
     }
 }

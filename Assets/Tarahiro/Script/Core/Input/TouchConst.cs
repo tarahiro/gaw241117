@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Tarahiro;
 using UnityEngine;
-using Zenject;
+using VContainer.Unity;
 
 namespace Tarahiro.TInput
 {

@@ -9,7 +9,8 @@ using Tarahiro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
+using VContainer;
+using VContainer.Unity;
 
 namespace gaw241117.Presenter
 {
@@ -21,7 +22,7 @@ namespace gaw241117.Presenter
 
         //ButtonがViewになるので、個別のViewは用意しない
         //必要になったら用意する
-        private void Awake()
+        private void Start()
         {
             _model.InitializeModel(OnEnterTitle, OnExitTitle);
         }

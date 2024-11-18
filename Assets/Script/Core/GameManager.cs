@@ -5,14 +5,15 @@ using System.Collections.Generic;
 using Tarahiro;
 using UniRx;
 using UnityEngine;
-using Zenject;
+using VContainer;
+using VContainer.Unity;
 
 namespace gaw241117
 {
-    public class GameManager : IInitializable
+    public class GameManager : IPostStartable
     {
         [Inject] IManagerToModelAdapter _coin;
-        public void Initialize()
+        public void PostStart()
         {
             SoundManager.PlayBGM("Main");
             _coin.Enter();

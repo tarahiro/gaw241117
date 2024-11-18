@@ -7,7 +7,7 @@ using Tarahiro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Zenject;
+using VContainer.Unity;
 
 namespace gaw241117.Model
 {

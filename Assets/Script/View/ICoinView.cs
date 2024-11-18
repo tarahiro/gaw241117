@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using Tarahiro;
 using UniRx;
 using UnityEngine;
-using Zenject;
+using VContainer.Unity;
 
 namespace gaw241117.View
 {

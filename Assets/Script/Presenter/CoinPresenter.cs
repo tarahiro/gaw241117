@@ -8,7 +8,8 @@ using System.Collections.Generic;
 using Tarahiro;
 using UniRx;
 using UnityEngine;
-using Zenject;
+using VContainer;
+using VContainer.Unity;
 
 namespace gaw241117.Presenter
 {
