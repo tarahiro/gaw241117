@@ -1,15 +1,13 @@
-using Cysharp.Threading.Tasks;
-using gaw241117;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using Tarahiro;
-using UniRx;
 using UnityEngine;
 using Zenject;
-using static gaw241117.View.InputPlatformUtility;
+using static Tarahiro.TInput.TouchConst;
+using static Tarahiro.TInput.InputPlatformUtility;
 
-namespace gaw241117.View
+namespace Tarahiro.TInput
 {
     public class TouchView : MonoBehaviour, ITouchView
     {

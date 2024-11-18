@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Tarahiro;
+using Tarahiro.TInput;
 using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;

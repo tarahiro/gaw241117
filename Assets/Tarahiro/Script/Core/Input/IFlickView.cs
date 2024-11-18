@@ -1,14 +1,12 @@
-using Cysharp.Threading.Tasks;
-using gaw241117;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using Tarahiro;
-using UniRx;
 using UnityEngine;
 using Zenject;
+using static Tarahiro.TInput.TouchConst;
 
-namespace gaw241117.View
+namespace Tarahiro.TInput
 {
     public interface IFlickView
     {

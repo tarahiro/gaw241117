@@ -11,6 +11,7 @@ using gaw241117.Model;
 using gaw241117.Presenter;
 using gaw241117.View;
 using gaw241110.presenter;
+using Tarahiro.TInput;
 
 namespace gaw241117.Inject
 {
