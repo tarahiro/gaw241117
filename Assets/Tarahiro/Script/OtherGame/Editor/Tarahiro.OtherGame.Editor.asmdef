@@ -1,0 +1,19 @@
+{
+    "name": "Tarahiro.OtherGame.Editor",
+    "rootNamespace": "Tarahiro.OtherGame.Editor",
+    "references": [
+        "GUID:0be27b54e10228743974a8df3dda3639",
+        "GUID:cdc9eda939f6a8649a5f90cc3ecf4fd8",
+        "GUID:4f25c196363830a409a13915d9aa2340",
+        "GUID:9543328fd2efb65489a014952fc9f8b9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Tarahiro;
+using Tarahiro.OtherGame;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ namespace gaw241117.Presenter
     public class TitlePresenter : MonoBehaviour
     {
         [Inject] ITitleModel _model;
+        [Inject] IOtherGameAbstructVIew _otherGameAbstructVIew;
+
         [SerializeField] Button _button;
         [SerializeField] GameObject _uiRoot;
 
@@ -29,6 +32,7 @@ namespace gaw241117.Presenter
 
         void OnEnterTitle()
         {
+            _otherGameAbstructVIew.ShowView();
             _button.onClick.AddListener(OnClick);
         }
         void OnExitTitle()

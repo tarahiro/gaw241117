@@ -11,27 +11,28 @@ namespace Tarahiro
 {
     public class Singleton<T> : IInitializable where T : MonoBehaviour
     {
-        static T _instance;
+        protected static T _instance;
 
         public static T GetInstance()
         {
-            if(_instance == null)
-            {
-                CreateInstance();
-            }
+            TryGetInstance();
             return _instance;
         }
 
         public void Initialize()
         {
-            CreateInstance();
+            TryGetInstance();
         }
 
-        static void CreateInstance()
+        protected static void TryGetInstance()
         {
-            var g = new GameObject();
-            _instance = g.AddComponent<T>();
-            GameObject.DontDestroyOnLoad(g);
+            if (_instance == null)
+            {
+                var g = new GameObject();
+                g.name = typeof(T).Name;
+                _instance = g.AddComponent<T>();
+                GameObject.DontDestroyOnLoad(g);
+            }
 
         }
     }

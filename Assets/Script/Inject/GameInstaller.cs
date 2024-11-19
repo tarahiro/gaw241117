@@ -11,6 +11,7 @@ using gaw241117.Model;
 using gaw241117.Presenter;
 using gaw241117.View;
 using gaw241110.presenter;
+using Tarahiro.OtherGame;
 using Tarahiro.TInput;
 using VContainer.Unity;
 using VContainer;
@@ -40,12 +41,14 @@ namespace gaw241117.Inject
             builder.RegisterComponentInHierarchy<CoinRigidbody>().AsImplementedInterfaces();
             builder.RegisterComponentInHierarchy<IsHeadUiView>().AsImplementedInterfaces();
 
-            //Touch
 
 #if ENABLE_DEBUG
             //Debug
             builder.Register<DebugManager>(Lifetime.Singleton).AsImplementedInterfaces();
 #endif
+            //OtherGame
+            builder.RegisterComponentInHierarchy<OtherGameAbstructView>().AsImplementedInterfaces();
+            builder.Register<OtherGameModel>(Lifetime.Singleton).WithParameter<string>("gaw241117").AsImplementedInterfaces();
 
             //GamaManager
             builder.Register<ManagerToModelAdapter>(Lifetime.Singleton).AsImplementedInterfaces();
@@ -56,52 +59,19 @@ namespace gaw241117.Inject
                 entryPoints.Add<ClearPresenter>();
                 entryPoints.Add<WinCountPresenter>();
                 entryPoints.Add<CoinPresenter>();
+
+                //Touch
                 entryPoints.Add<TTouch>();
                 entryPoints.Add<TFlick>();
+                entryPoints.Add<TCanvas>();
+
+                //OtherGame
+                entryPoints.Add<OtherGamePresenter>();
+#if ENABLE_VIRTUAL_CURSOR
+                entryPoints.Add<TVIrtualCursor>();
+#endif
             });
 
         }
-        /*
-        public override void InstallBindings()
-        {
-
-            //Title
-            Container.BindInterfacesTo<TitleModel>().AsSingle();
-            Container.Bind<TitlePresenter>().FromComponentInHierarchy().AsSingle();
-
-            //WinCount
-            Container.BindInterfacesTo<WinCountModel>().AsSingle();
-            Container.BindInterfacesTo<WinCountPresenter>().AsSingle();
-            Container.BindInterfacesTo<WinningStreakView>().FromComponentInHierarchy().AsSingle();
-
-
-            //Clear
-            Container.BindInterfacesTo<ClearModel>().AsSingle();
-            Container.BindInterfacesTo<ClearPresenter>().AsSingle();
-            Container.BindInterfacesTo<ClearView>().FromComponentInHierarchy().AsSingle();
-
-            //Coin
-            Container.BindInterfacesTo<CoinModel>().AsSingle();
-            Container.BindInterfacesTo<CoinPresenter>().AsSingle();
-            Container.BindInterfacesTo<CoinView>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesTo<CoinRigidbody>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesTo<IsHeadUiView>().FromComponentInHierarchy().AsSingle();
-
-            //Touch
-            Container.BindInterfacesTo<TTouch>().AsSingle();
-            Container.BindInterfacesTo<TFlick>().AsSingle();
-
-#if ENABLE_DEBUG
-            //Debug
-            Container.BindInterfacesTo<DebugManager>().AsSingle();
-#endif
-
-
-            //GamaManager
-            Container.BindInterfacesTo<ManagerToModelAdapter>().AsSingle();
-            Container.BindInterfacesTo<GameManager>().AsSingle();
-            Container.BindInitializableExecutionOrder<GameManager>(100);
-        }
-        */
     }
 }

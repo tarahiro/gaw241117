@@ -52,8 +52,7 @@ namespace Tarahiro.TInput
                         ChangeState(FlickState.End);
                     }
                     else if (IsFlicking(c_minFlickSpeed))
-                    {
-                        Log.DebugLog("Flicking");
+                    { 
                     }
                     else
                     {
@@ -91,16 +90,12 @@ namespace Tarahiro.TInput
                 case FlickState.Begin:
                     _beginScreenPoint = TTouch.GetInstance().PrevScreenPoint(c_averagedFrameCount);
                     _beginTime = TTouch.GetInstance().TimeOnThisFrame;
-                    Log.DebugLog("Begin");
                     break;
                 case FlickState.Flicking:
-                    Log.DebugLog("Flicking");
                     break;
                 case FlickState.Stop:
-                    Log.DebugLog("Stop");
                     break;
                 case FlickState.End:
-                    Log.DebugLog("End");
                     break;
 
             }
