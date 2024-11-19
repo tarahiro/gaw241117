@@ -21,9 +21,9 @@ namespace Tarahiro.OtherGame
             _model.InitializeModel(OnInitializeModel);
         }
 
-        void OnInitializeModel(string _fakeGameCode)
+        void OnInitializeModel(List<string> spritePathList)
         {
-            _abstructView.InitializeView(_fakeGameCode);
+            _abstructView.InitializeView(spritePathList);
         }
     }
 }

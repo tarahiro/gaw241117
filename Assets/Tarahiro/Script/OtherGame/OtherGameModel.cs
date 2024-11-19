@@ -12,8 +12,8 @@ namespace Tarahiro.OtherGame
 {
     public class OtherGameModel : IOtherGameModel
     {
-        [Inject]
-        string _gameCode;
+        [Inject] string _gameCode;
+        [Inject] IOtherGameMasterDataProvider _masterDataProvider;
 
         /*
         public OtherGameModel(string gameCode)
@@ -22,9 +22,18 @@ namespace Tarahiro.OtherGame
         }
         */
 
-        public void InitializeModel(Action<string> _fakeInitializedModel)
+        public void InitializeModel(Action<List<string>> modelInitialized)
         {
-            _fakeInitializedModel.Invoke(_gameCode);
+            List<string> pathList = new List<string>();
+            for(int i = 0; i < _masterDataProvider.Count; i++)
+            {
+                var master = _masterDataProvider.TryGetFromIndex(i).GetMaster();
+                if (master.Id != _gameCode)
+                {
+                    pathList.Add(master.IconPathJp);
+                }
+            }
+            modelInitialized.Invoke(pathList);
         }
     }
 }

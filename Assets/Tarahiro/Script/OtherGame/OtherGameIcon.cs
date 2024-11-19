@@ -6,13 +6,19 @@ using Tarahiro;
 using Tarahiro.Ui;
 using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 using VContainer;
 
 namespace Tarahiro.OtherGame
 {
-    public interface IOtherGameAbstructVIew
+    public class OtherGameIcon : MonoBehaviour, IOtherGameIcon
+
     {
-        void InitializeView(List<string> spritePathList);
-        void ShowView();
+        [SerializeField] Image image;
+
+        public void Construct(Sprite sprite)
+        {
+            image.sprite = sprite;
+        }
     }
 }

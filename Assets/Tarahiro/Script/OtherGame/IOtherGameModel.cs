@@ -12,6 +12,6 @@ namespace Tarahiro.OtherGame
 {
     public interface IOtherGameModel
     {
-        void InitializeModel(Action<string> _fakeInitializedModel);
+        void InitializeModel(Action<List<string>> modelInitialized);
     }
 }

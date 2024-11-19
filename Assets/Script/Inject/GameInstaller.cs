@@ -12,6 +12,7 @@ using gaw241117.Presenter;
 using gaw241117.View;
 using gaw241110.presenter;
 using Tarahiro.OtherGame;
+using Tarahiro.OtherGame.MasterData;
 using Tarahiro.TInput;
 using VContainer.Unity;
 using VContainer;
@@ -49,6 +50,18 @@ namespace gaw241117.Inject
             //OtherGame
             builder.RegisterComponentInHierarchy<OtherGameAbstructView>().AsImplementedInterfaces();
             builder.Register<OtherGameModel>(Lifetime.Singleton).WithParameter<string>("gaw241117").AsImplementedInterfaces();
+            builder.Register<OtherGameMasterDataProvider>(Lifetime.Singleton).AsImplementedInterfaces();
+            builder.RegisterFactory<Sprite, OtherGameIcon>(container =>
+            {
+                
+                return sprite =>
+                {
+                    var prefab = Resources.Load<OtherGameIcon>("Prefab/OtherGameIcon");
+                    OtherGameIcon instance = container.Instantiate(prefab);
+                    instance.Construct(sprite);
+                    return instance;
+                };
+            }, Lifetime.Scoped);
 
             //GamaManager
             builder.Register<ManagerToModelAdapter>(Lifetime.Singleton).AsImplementedInterfaces();

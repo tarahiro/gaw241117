@@ -10,9 +10,8 @@ using VContainer;
 
 namespace Tarahiro.OtherGame
 {
-    public interface IOtherGameAbstructVIew
+    public interface IOtherGameIcon
     {
-        void InitializeView(List<string> spritePathList);
-        void ShowView();
+        void Construct(Sprite sprite);
     }
 }

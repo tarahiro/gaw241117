@@ -109,7 +109,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="24.5" ss:StyleID="s62">
     <Cell ss:StyleID="s63" ss:ArrayRange="RC"
      ss:Formula="=MID( CELL(&quot;filename&quot;,R1C1),&#10;FIND(&quot;[&quot;, CELL(&quot;filename&quot;,R1C1)) +1,&#10;FIND(&quot;]&quot;, CELL(&quot;filename&quot;,R1C1)) - FIND(&quot;[&quot;, CELL(&quot;filename&quot;,R1C1)) -1)"><Data
-      ss:Type="String">GameIntroduction.xml</Data></Cell>
+      ss:Type="String">OtherGame.xml</Data></Cell>
    </Row>
    <Row ss:Index="4" ss:AutoFitHeight="0" ss:Height="17.5" ss:StyleID="s64">
     <Cell ss:StyleID="s65"><Data ss:Type="String">index</Data></Cell>
@@ -146,7 +146,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">pandemic-nostalgic café game</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">過去となりつつあるコロナ禍を、このゲームで懐かしく思い出しませんか？&#10;急激に移り変わる社会への高揚感。右往左往する国家への冷笑感。命の危険を傍に感じる切迫感。&#10;珈琲の香りとともに、コロナ禍をノスタルジーとして体験しましょう。</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Looking back, what happened in the COVID-19 pandemic might be a nostalgic memory now…&#10;The suspense of not knowing how society will change day by day. The cynicism toward an indecisive country. &#10;The sense of urgency for action and the fear of catching the virus. Reminisce the pandemic with the fragrance of coffee by your side.</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/ccc_icon</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Sprite/OtherGame/ccc_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/ccc_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/ccc_c</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/ccc_c</Data></Cell>
@@ -167,7 +167,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">an RPG your live-streaming skills affect the adventure</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">ここは配信技術だけが発達した異世界、ワンダルシア。&#10;駆け出しの異世界配信者になりきって、個性豊かなリスナーや&#10;相棒のネコとともにダンジョン探索を楽しみましょう！</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Wonderlucia, an alternate world where streaming is the sole form of advanced technology.&#10;Become a novice live streaming adventurer and explore dungeons with your cat buddy and quirky viewers!</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_icon</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Sprite/OtherGame/csq_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_c</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_c</Data></Cell>
@@ -188,7 +188,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">Sound Aligned RPG</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">廃墟となった島のはずれで、海辺に漂着した&#10;ビンや木の枝を使って「楽器」を作り出し、&#10;海から聴こえる音に「こだま」を返してみよう。</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">At the edge of a desolate island, pick up what the waves wash ashore to make instruments.&#10; Use those instruments to answer the echoes heard from beyond the ocean.</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_icon</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_c</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_c</Data></Cell>
@@ -209,7 +209,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">an RPG your live-streaming skills affect the adventure</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">ここは配信技術だけが発達した異世界、ワンダルシア。&#10;駆け出しの異世界配信者になりきって、個性豊かなリスナーや&#10;相棒のネコとともにダンジョン探索を楽しみましょう！</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Wonderlucia, an alternate world where streaming is the sole form of advanced technology.&#10;Become a novice live streaming adventurer and explore dungeons with your cat buddy and quirky viewers!</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_icon</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Sprite/OtherGame/csq_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_c</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_c</Data></Cell>
@@ -230,7 +230,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">Sound Aligned RPG</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">廃墟となった島のはずれで、海辺に漂着した&#10;ビンや木の枝を使って「楽器」を作り出し、&#10;海から聴こえる音に「こだま」を返してみよう。</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">At the edge of a desolate island, pick up what the waves wash ashore to make instruments.&#10; Use those instruments to answer the echoes heard from beyond the ocean.</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_icon</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_c</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_c</Data></Cell>
@@ -251,7 +251,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">an RPG your live-streaming skills affect the adventure</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">ここは配信技術だけが発達した異世界、ワンダルシア。&#10;駆け出しの異世界配信者になりきって、個性豊かなリスナーや&#10;相棒のネコとともにダンジョン探索を楽しみましょう！</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Wonderlucia, an alternate world where streaming is the sole form of advanced technology.&#10;Become a novice live streaming adventurer and explore dungeons with your cat buddy and quirky viewers!</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_icon</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Sprite/OtherGame/csq_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_c</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/csq_c</Data></Cell>
@@ -272,7 +272,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">Sound Aligned RPG</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">廃墟となった島のはずれで、海辺に漂着した&#10;ビンや木の枝を使って「楽器」を作り出し、&#10;海から聴こえる音に「こだま」を返してみよう。</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">At the edge of a desolate island, pick up what the waves wash ashore to make instruments.&#10; Use those instruments to answer the echoes heard from beyond the ocean.</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_icon</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_c</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_c</Data></Cell>
@@ -293,7 +293,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">Sound Aligned RPG</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">廃墟となった島のはずれで、海辺に漂着した&#10;ビンや木の枝を使って「楽器」を作り出し、&#10;海から聴こえる音に「こだま」を返してみよう。</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">At the edge of a desolate island, pick up what the waves wash ashore to make instruments.&#10; Use those instruments to answer the echoes heard from beyond the ocean.</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_icon</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_icon</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_c</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GameIntroduction/u1w_c</Data></Cell>
@@ -324,36 +324,15 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <RangeSelection>R5C1:R12C2</RangeSelection>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C1:R7C19,R10C3:R10C19,R8C3:R8C19,R8C1:R12C2</Range>
-   <Condition>
-    <Value1>LEN(TRIM(RC))=0</Value1>
-    <Format Style='background:#E7E6E6'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C3:R9C19</Range>
-   <Condition>
-    <Value1>LEN(TRIM(RC))=0</Value1>
-    <Format Style='background:#E7E6E6'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C3:R11C19</Range>
-   <Condition>
-    <Value1>LEN(TRIM(RC))=0</Value1>
-    <Format Style='background:#E7E6E6'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R12C3:R12C19</Range>
+   <Range>R5C1:R12C19</Range>
    <Condition>
     <Value1>LEN(TRIM(RC))=0</Value1>
     <Format Style='background:#E7E6E6'/>
