@@ -10,26 +10,33 @@ using VContainer;
 
 namespace Tarahiro.OtherGame
 {
-    public class OtherGameMenuItemView : MonoBehaviour, IMenuItemView
+    public class OtherGameMenuItemView : MonoBehaviour, IOtherGameMenuItemView
     {
-        [Inject] readonly Func<Sprite, OtherGameIcon> factory;
+        [Inject] readonly Func<Sprite, IOtherGameIcon> factory;
         [SerializeField] GameObject _focusObject;
 
+     //   Subject<Unit> _focused = new Subject<Unit>();
 
-        string _url;
+     //   public IObservable<Unit> Focused => _focused;
 
+        string _id;
+        Subject<string> _decided = new Subject<string>();
+
+        public IObservable<string> Decided => _decided;
         public void Construct(IOtherGameMenuItemViewArgs args)
         {
             var v = factory.Invoke(Resources.Load<Sprite>(args.IconPath));
             v.transform.parent = transform;
             v.transform.localPosition = Vector3.zero;
 
-            _url = args.Url;
+            _id = args.Id;
+            _focusObject.transform.SetAsLastSibling();
         }
 
         public void Focus()
         {
             _focusObject.SetActive(true);
+    //        _focused.OnNext(Unit.Default);
         }
 
         public void UnFocus()
@@ -38,8 +45,8 @@ namespace Tarahiro.OtherGame
         }
 
         public void Decide()
-        {
-            Log.DebugLog(_url);
+        { 
+            _decided.OnNext(_id);
         }
 
     }

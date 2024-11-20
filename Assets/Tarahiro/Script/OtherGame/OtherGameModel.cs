@@ -39,5 +39,10 @@ namespace Tarahiro.OtherGame
             }
             _modelInitialized.OnNext(_availableMasterData);
         }
+
+        public void SelectOtherGame(string id)
+        {
+            Application.OpenURL(_masterDataProvider.TryGetFromId(id).GetMaster().StoreUrlJp);
+        }
     }
 }

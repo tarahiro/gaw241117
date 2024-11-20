@@ -15,5 +15,7 @@ namespace Tarahiro.OtherGame
          IObservable<IEnumerable<IOtherGameMaster>> ModelInitialized { get; }
 
         void InitializeModel();
+
+        void SelectOtherGame(string id);
     }
 }

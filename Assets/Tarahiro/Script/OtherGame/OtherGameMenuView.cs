@@ -12,22 +12,33 @@ namespace Tarahiro.OtherGame
 {
     public class OtherGameMenuView : MonoBehaviour, IOtherGameMenuView
     {
-        [Inject] readonly Func<IOtherGameMenuItemViewArgs,OtherGameMenuItemView> factory;
+        [Inject] readonly Func<IOtherGameMenuItemViewArgs,IOtherGameMenuItemView> factory;
 
-        List<OtherGameMenuItemView> _itemList = new List<OtherGameMenuItemView>();
+        [SerializeField] GameObject _root;
+        [SerializeField] Transform _iconRoot;
 
-        const int c_maxIndex = 5;
-
+        Subject<int> _focused = new Subject<int>();
+        List<IOtherGameMenuItemView> _itemList = new List<IOtherGameMenuItemView>();
         bool _isInputAcceptable = false;
         int _index = 0;
 
-        public void InitializeView(List<IOtherGameMenuItemViewArgs> argsList)
+        public IObservable<int> Focused => _focused;
+
+        void Awake()
+        {
+            _root.SetActive(false);
+        }
+
+
+        public void InitializeView(List<IOtherGameMenuItemViewArgs> argsList, Action<string> selected, ICollection<IDisposable> disposables)
         {
             for (int i = 0; i < argsList.Count && i < OtherGameConst.c_iconNumber; i++)
             {
                 var v = factory.Invoke(argsList[i]);
-                v.transform.parent = transform;
+                v.transform.parent = _iconRoot;
                 v.transform.localPosition = Vector3.right * i * 200f; // fake
+                v.Decided.Subscribe(selected).AddTo(disposables);
+
                 _itemList.Add(v);
             }
         }
@@ -35,18 +46,19 @@ namespace Tarahiro.OtherGame
 
         public void ShowView()
         {
-            gameObject.SetActive(true);
+            _root.SetActive(true);
         }
 
         public void Enter()
         {
             _isInputAcceptable = true;
+            Focus(_index);
         }
 
         public void Exit()
         {
             _isInputAcceptable = false;
-
+            UnFocus(_index);
         }
 
         void Update()
@@ -54,12 +66,17 @@ namespace Tarahiro.OtherGame
             if (_isInputAcceptable)
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow)){
-                    ChangeFocus((c_maxIndex + _index - 1) % c_maxIndex);
+                    ChangeFocus((OtherGameConst.c_iconNumber + _index - 1) % OtherGameConst.c_iconNumber);
                 }
 
                 if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
-                    ChangeFocus((_index + 1) % c_maxIndex);
+                    ChangeFocus((_index + 1) % OtherGameConst.c_iconNumber);
+                }
+
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    Decide();
                 }
 
             }
@@ -67,8 +84,25 @@ namespace Tarahiro.OtherGame
 
         void ChangeFocus(int nextIndex)
         {
+            UnFocus(_index);
             _index = nextIndex;
-            Log.DebugLog(_index);
+            Focus(_index);
+        }
+
+        void UnFocus(int index)
+        {
+            _itemList[_index].UnFocus();
+
+        }
+        void Focus(int index)
+        {
+            _itemList[_index].Focus();
+            _focused.OnNext(_index);
+        }
+
+        void Decide()
+        {
+            _itemList[_index].Decide();
         }
     }
 }

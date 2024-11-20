@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Tarahiro
 {
-    public interface IMenuItemView
+    public interface IMenuItemView : ITransform
     {
         void Focus();
 

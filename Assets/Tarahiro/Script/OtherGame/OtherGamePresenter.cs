@@ -17,7 +17,9 @@ namespace Tarahiro.OtherGame
         [Inject] IOtherGameModel _model;
         [Inject] IOtherGameAbstructVIew _abstructView;
         [Inject] IOtherGameMenuView _menuView;
-        [Inject] Func<string, string, IOtherGameMenuItemViewArgs> _factory;
+        [Inject] IOtherGameDetailView _detailView;
+        [Inject] Func<IOtherGameMaster, IOtherGameMenuItemViewArgs> _menuItemViewArgsFactory;
+        [Inject] Func<IOtherGameMaster, IOtherGameDetailViewArgs> _detailViewArgsFactory;
 
         private readonly CompositeDisposable m_Disposables = new CompositeDisposable();
 
@@ -37,11 +39,20 @@ namespace Tarahiro.OtherGame
                    AddTo(m_Disposables);
             _abstructView.InitializeView(pathList);
 
-            List<IOtherGameMenuItemViewArgs> argsList = 
+            List<IOtherGameMenuItemViewArgs> menuItemArgsList = 
                 masterList.
-                    Select(x => _factory.Invoke(x.IconPathJp,x.StoreUrlJp)).
+                    Select(x => _menuItemViewArgsFactory.Invoke(x)).
                     ToList();
-            _menuView.InitializeView(argsList);
+
+            _menuView.InitializeView(menuItemArgsList, _model.SelectOtherGame,m_Disposables);
+            _menuView.Focused.Subscribe(_detailView.ShowView).AddTo(m_Disposables);
+
+            List<IOtherGameDetailViewArgs> detailArgsList =
+                masterList.
+                    Select(x => _detailViewArgsFactory.Invoke(x)).
+                    ToList();
+            _detailView.InitializeView(detailArgsList);
+
 
         }
     }

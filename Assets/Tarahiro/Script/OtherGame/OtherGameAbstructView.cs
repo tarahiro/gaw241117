@@ -14,13 +14,13 @@ namespace Tarahiro.OtherGame
 {
     public class OtherGameAbstructView: MonoBehaviour,IOtherGameAbstructVIew
     {
-        [Inject] readonly Func<Sprite, OtherGameIcon> factory;
+        [Inject] readonly Func<Sprite, IOtherGameIcon> factory;
         [Inject] IOtherGameMenuView _menuView;
 
         [SerializeField] Button _button;
-        List<IOtherGameIcon> _iconList = new List<IOtherGameIcon>();
 
         Subject<Unit> _selected = new Subject<Unit>();
+        List<IOtherGameIcon> _iconList = new List<IOtherGameIcon>();
 
         public IObservable<Unit> Selected => _selected;
 

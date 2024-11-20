@@ -11,15 +11,15 @@ using gaw241117.Model;
 using gaw241117.Presenter;
 using gaw241117.View;
 using gaw241110.presenter;
+using Tarahiro.UI;
 using Tarahiro.OtherGame;
 using Tarahiro.OtherGame.MasterData;
 using Tarahiro.TInput;
-using VContainer.Unity;
 using VContainer;
 
 namespace gaw241117.Inject
 {
-    public class GameInstaller : LifetimeScope
+    public class Dier : LifetimeScope
     {
         protected override void Configure(IContainerBuilder builder)
         {
@@ -47,12 +47,15 @@ namespace gaw241117.Inject
             //Debug
             builder.Register<DebugManager>(Lifetime.Singleton).AsImplementedInterfaces();
 #endif
+
+
             //OtherGame
             builder.RegisterComponentInHierarchy<OtherGameAbstructView>().AsImplementedInterfaces();
             builder.RegisterComponentInHierarchy<OtherGameMenuView>().AsImplementedInterfaces();
+            builder.RegisterComponentInHierarchy<OtherGameDetailView>().AsImplementedInterfaces();
             builder.Register<OtherGameModel>(Lifetime.Singleton).WithParameter<string>("gaw241117").AsImplementedInterfaces();
             builder.Register<OtherGameMasterDataProvider>(Lifetime.Singleton).AsImplementedInterfaces();
-            builder.RegisterFactory<Sprite, OtherGameIcon>(container =>
+            builder.RegisterFactory<Sprite, IOtherGameIcon>(container =>
             {
                 
                 return sprite =>
@@ -64,7 +67,7 @@ namespace gaw241117.Inject
                 };
             }, Lifetime.Scoped);
 
-            builder.RegisterFactory<IOtherGameMenuItemViewArgs, OtherGameMenuItemView>(container =>
+            builder.RegisterFactory<IOtherGameMenuItemViewArgs, IOtherGameMenuItemView>(container =>
             {
                 return args =>
                 {
@@ -75,7 +78,11 @@ namespace gaw241117.Inject
                 };
             }, Lifetime.Scoped);
 
-            builder.RegisterFactory<string, string, IOtherGameMenuItemViewArgs>((x, y) => new OtherGameMenuItemViewArgs(x, y));
+            builder.RegisterFactory<IOtherGameMaster, IOtherGameMenuItemViewArgs>(m=> new OtherGameMenuItemViewArgs(m.Id,m.IconPathJp));
+
+            builder.RegisterFactory<IOtherGameMaster, IOtherGameDetailViewArgs>(x => new OtherGameDetailViewArgs(x.TitleNameJp,x.GenreNameJp, x.DescriptionJp,x.ScreenShotCenterPathJp,x.ScreenShotRightTopPathJp,x.ScreenShotRightBottomPathJp));
+
+
 
             //GamaManager
             builder.Register<ManagerToModelAdapter>(Lifetime.Singleton).AsImplementedInterfaces();

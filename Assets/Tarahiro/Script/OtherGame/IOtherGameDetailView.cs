@@ -10,8 +10,10 @@ using VContainer;
 
 namespace Tarahiro.OtherGame
 {
-    public interface IOtherGameIcon: ITransform
+    public interface IOtherGameDetailView
     {
-        void Construct(Sprite sprite);
+        void ShowView(int index);
+
+        void InitializeView(List<IOtherGameDetailViewArgs> argsList);
     }
 }

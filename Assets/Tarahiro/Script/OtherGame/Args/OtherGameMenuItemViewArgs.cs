@@ -14,13 +14,12 @@ namespace Tarahiro.OtherGame
     {
 
         public string IconPath { get; set; }
-        public string Url { get; set; }
+        public string Id { get; set; }
 
-        public OtherGameMenuItemViewArgs(string iconPath, string url)
+        public OtherGameMenuItemViewArgs(string id,string iconPath)
         {
+            Id = id;
             IconPath = iconPath;
-            Url = url;
-
         }
 
 

@@ -13,7 +13,8 @@ namespace Tarahiro.OtherGame
 {
     public interface IOtherGameMenuView: IMenuView
     {
-        void InitializeView(List<IOtherGameMenuItemViewArgs> argsList);
+        IObservable<int> Focused { get; }
+        void InitializeView(List<IOtherGameMenuItemViewArgs> argsList, Action<string> selected, ICollection<IDisposable> disposables);
         void ShowView();
     }
 }
