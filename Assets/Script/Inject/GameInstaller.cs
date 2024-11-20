@@ -49,6 +49,7 @@ namespace gaw241117.Inject
 #endif
             //OtherGame
             builder.RegisterComponentInHierarchy<OtherGameAbstructView>().AsImplementedInterfaces();
+            builder.RegisterComponentInHierarchy<OtherGameMenuView>().AsImplementedInterfaces();
             builder.Register<OtherGameModel>(Lifetime.Singleton).WithParameter<string>("gaw241117").AsImplementedInterfaces();
             builder.Register<OtherGameMasterDataProvider>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.RegisterFactory<Sprite, OtherGameIcon>(container =>
@@ -62,6 +63,19 @@ namespace gaw241117.Inject
                     return instance;
                 };
             }, Lifetime.Scoped);
+
+            builder.RegisterFactory<IOtherGameMenuItemViewArgs, OtherGameMenuItemView>(container =>
+            {
+                return args =>
+                {
+                    var prefab = Resources.Load <OtherGameMenuItemView>("Prefab/OtherGameMenuItemView");
+                    OtherGameMenuItemView instance = container.Instantiate(prefab);
+                    instance.Construct(args);
+                    return instance;
+                };
+            }, Lifetime.Scoped);
+
+            builder.RegisterFactory<string, string, IOtherGameMenuItemViewArgs>((x, y) => new OtherGameMenuItemViewArgs(x, y));
 
             //GamaManager
             builder.Register<ManagerToModelAdapter>(Lifetime.Singleton).AsImplementedInterfaces();

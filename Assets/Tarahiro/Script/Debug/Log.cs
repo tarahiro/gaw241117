@@ -19,9 +19,9 @@ namespace Tarahiro
 
 		// DEBUG時のみログを流す
 		[Conditional("ENABLE_DEBUG")]
-		public static void DebugLog(string str)
+		public static void DebugLog(object message)
 		{
-			UnityEngine.Debug.Log(str);
+			UnityEngine.Debug.Log(message);
 		}
 
 		// DEBUG時のみ警告を流す

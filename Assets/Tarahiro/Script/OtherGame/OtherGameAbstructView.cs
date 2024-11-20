@@ -15,23 +15,21 @@ namespace Tarahiro.OtherGame
     public class OtherGameAbstructView: MonoBehaviour,IOtherGameAbstructVIew
     {
         [Inject] readonly Func<Sprite, OtherGameIcon> factory;
+        [Inject] IOtherGameMenuView _menuView;
 
-
-        [SerializeField] Transform _objectRoot;
         [SerializeField] Button _button;
         List<IOtherGameIcon> _iconList = new List<IOtherGameIcon>();
 
-        const int c_iconNumber = 5;
         Subject<Unit> _selected = new Subject<Unit>();
 
         public IObservable<Unit> Selected => _selected;
 
         public void InitializeView(List<string> spritePathList)
         {
-            for (int i = 0; i < spritePathList.Count && i < c_iconNumber; i++)
+            for (int i = 0; i < spritePathList.Count && i < OtherGameConst.c_iconNumber; i++)
             {
                 var v = factory.Invoke(Resources.Load<Sprite>(spritePathList[i]));
-                v.transform.parent = _objectRoot;
+                v.transform.parent = transform;
                 v.transform.localPosition = Vector3.right * i * 200f; // fake
                 _iconList.Add(v);
             }
@@ -41,12 +39,16 @@ namespace Tarahiro.OtherGame
 
         public void ShowView()
         {
-            _objectRoot.gameObject.SetActive(true);
+            gameObject.SetActive(true);
         }
 
         void OnClick()
         {
-            _selected.OnNext(Unit.Default);
+            //IOtherGameMenuViewÇ…êßå‰ÇìnÇ∑
+            _menuView.ShowView();
+            _menuView.Enter();
+
+            //_selected.OnNext(Unit.Default);
         }
 
     }

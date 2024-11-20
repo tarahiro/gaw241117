@@ -10,10 +10,10 @@ using VContainer;
 
 namespace Tarahiro.OtherGame
 {
-    public interface IOtherGameModel
+    public interface IOtherGameMenuItemViewArgs
     {
-         IObservable<IEnumerable<IOtherGameMaster>> ModelInitialized { get; }
+        string IconPath { get; }
+        string Url { get; }
 
-        void InitializeModel();
     }
 }

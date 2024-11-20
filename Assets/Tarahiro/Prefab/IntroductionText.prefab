@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7130158162041250650}
   - component: {fileID: 6783979025127299394}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: IntroductionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4b3bc4b04a2a04544a13068453aa77c6, type: 2}
+  m_sharedMaterial: {fileID: -1002400735902111894, guid: 4b3bc4b04a2a04544a13068453aa77c6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

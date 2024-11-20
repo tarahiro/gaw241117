@@ -32,8 +32,10 @@ namespace gaw241117.Presenter
 
         void OnEnterTitle()
         {
-            _otherGameAbstructVIew.ShowView();
+            _uiRoot.SetActive(true);
             _button.onClick.AddListener(OnClick);
+
+            _otherGameAbstructVIew.ShowView();
         }
         void OnExitTitle()
         {

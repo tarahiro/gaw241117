@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Tarahiro;
 using Tarahiro.Ui;
 using UniRx;
@@ -15,8 +16,8 @@ namespace Tarahiro.OtherGame
         [Inject] string _gameCode;
         [Inject] IOtherGameMasterDataProvider _masterDataProvider;
 
-        Subject<List<string>> _modelInitialized = new Subject<List<string>>();
-        public IObservable<List<string>> ModelInitialized => _modelInitialized;
+        Subject<IEnumerable<IOtherGameMaster>> _modelInitialized = new Subject<IEnumerable<IOtherGameMaster>>();
+        public IObservable<IEnumerable<IOtherGameMaster>> ModelInitialized => _modelInitialized;
 
         /*
         public OtherGameModel(string gameCode)
@@ -27,16 +28,16 @@ namespace Tarahiro.OtherGame
 
         public void InitializeModel()
         {
-            List<string> pathList = new List<string>();
+            List<IOtherGameMaster> _availableMasterData = new List<IOtherGameMaster>();
             for(int i = 0; i < _masterDataProvider.Count; i++)
             {
                 var master = _masterDataProvider.TryGetFromIndex(i).GetMaster();
                 if (master.Id != _gameCode)
                 {
-                    pathList.Add(master.IconPathJp);
+                    _availableMasterData.Add(master);
                 }
             }
-            _modelInitialized.OnNext(pathList);
+            _modelInitialized.OnNext(_availableMasterData);
         }
     }
 }

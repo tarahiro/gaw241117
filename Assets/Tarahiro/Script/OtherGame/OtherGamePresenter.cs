@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Tarahiro;
 using Tarahiro.Ui;
 using UniRx;
@@ -15,6 +16,8 @@ namespace Tarahiro.OtherGame
     {
         [Inject] IOtherGameModel _model;
         [Inject] IOtherGameAbstructVIew _abstructView;
+        [Inject] IOtherGameMenuView _menuView;
+        [Inject] Func<string, string, IOtherGameMenuItemViewArgs> _factory;
 
         private readonly CompositeDisposable m_Disposables = new CompositeDisposable();
 
@@ -26,12 +29,20 @@ namespace Tarahiro.OtherGame
             _model.InitializeModel();
         }
 
-        void OnInitializeModel(List<string> spritePathList)
+        void OnInitializeModel(IEnumerable<IOtherGameMaster> masterList)
         {
+            List<string> pathList = masterList.Select(x => x.IconPathJp).ToList();
             _abstructView.Selected.
                    Subscribe(_ => Log.DebugLog("Selected")).
                    AddTo(m_Disposables);
-            _abstructView.InitializeView(spritePathList);
+            _abstructView.InitializeView(pathList);
+
+            List<IOtherGameMenuItemViewArgs> argsList = 
+                masterList.
+                    Select(x => _factory.Invoke(x.IconPathJp,x.StoreUrlJp)).
+                    ToList();
+            _menuView.InitializeView(argsList);
+
         }
     }
 }

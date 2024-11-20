@@ -10,10 +10,8 @@ using VContainer;
 
 namespace Tarahiro.OtherGame
 {
-    public interface IOtherGameModel
+    public static class OtherGameConst
     {
-         IObservable<IEnumerable<IOtherGameMaster>> ModelInitialized { get; }
-
-        void InitializeModel();
+        public const int c_iconNumber = 5;
     }
 }

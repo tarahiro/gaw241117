@@ -4,16 +4,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Tarahiro;
 using Tarahiro.Ui;
+using Tarahiro.UI;
 using UniRx;
 using UnityEngine;
 using VContainer;
 
 namespace Tarahiro.OtherGame
 {
-    public interface IOtherGameModel
+    public interface IOtherGameMenuView: IMenuView
     {
-         IObservable<IEnumerable<IOtherGameMaster>> ModelInitialized { get; }
-
-        void InitializeModel();
+        void InitializeView(List<IOtherGameMenuItemViewArgs> argsList);
+        void ShowView();
     }
 }
