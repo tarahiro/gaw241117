@@ -16,13 +16,21 @@ namespace Tarahiro.OtherGame
         [Inject] IOtherGameModel _model;
         [Inject] IOtherGameAbstructVIew _abstructView;
 
+        private readonly CompositeDisposable m_Disposables = new CompositeDisposable();
+
         public void Initialize()
         {
-            _model.InitializeModel(OnInitializeModel);
+            _model.ModelInitialized.
+                Subscribe(x => OnInitializeModel(x)).
+                AddTo(m_Disposables);
+            _model.InitializeModel();
         }
 
         void OnInitializeModel(List<string> spritePathList)
         {
+            _abstructView.Selected.
+                   Subscribe(_ => Log.DebugLog("Selected")).
+                   AddTo(m_Disposables);
             _abstructView.InitializeView(spritePathList);
         }
     }

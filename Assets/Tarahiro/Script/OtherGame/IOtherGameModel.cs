@@ -12,6 +12,8 @@ namespace Tarahiro.OtherGame
 {
     public interface IOtherGameModel
     {
-        void InitializeModel(Action<List<string>> modelInitialized);
+         IObservable<List<string>> ModelInitialized { get; }
+
+        void InitializeModel();
     }
 }

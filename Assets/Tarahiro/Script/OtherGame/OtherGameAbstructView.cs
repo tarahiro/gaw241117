@@ -8,6 +8,7 @@ using UniRx;
 using UnityEngine;
 using VContainer;
 using TMPro;
+using UnityEngine.UI;
 
 namespace Tarahiro.OtherGame
 {
@@ -16,11 +17,14 @@ namespace Tarahiro.OtherGame
         [Inject] readonly Func<Sprite, OtherGameIcon> factory;
 
 
-        [SerializeField] TextMeshProUGUI _fakeText;
         [SerializeField] Transform _objectRoot;
+        [SerializeField] Button _button;
         List<IOtherGameIcon> _iconList = new List<IOtherGameIcon>();
 
         const int c_iconNumber = 5;
+        Subject<Unit> _selected = new Subject<Unit>();
+
+        public IObservable<Unit> Selected => _selected;
 
         public void InitializeView(List<string> spritePathList)
         {
@@ -31,11 +35,19 @@ namespace Tarahiro.OtherGame
                 v.transform.localPosition = Vector3.right * i * 200f; // fake
                 _iconList.Add(v);
             }
+
+            _button.onClick.AddListener(OnClick);
         }
 
         public void ShowView()
         {
             _objectRoot.gameObject.SetActive(true);
         }
+
+        void OnClick()
+        {
+            _selected.OnNext(Unit.Default);
+        }
+
     }
 }

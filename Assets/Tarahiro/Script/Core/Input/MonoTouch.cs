@@ -171,7 +171,6 @@ namespace Tarahiro.TInput
                     break;
             }
 
-            Log.DebugLog(state.ToString());
         }
 
         void NoneTouch()

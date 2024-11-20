@@ -13,6 +13,7 @@ namespace Tarahiro.OtherGame
     public interface IOtherGameAbstructVIew
     {
         void InitializeView(List<string> spritePathList);
+        public IObservable<Unit> Selected { get; }
         void ShowView();
     }
 }
