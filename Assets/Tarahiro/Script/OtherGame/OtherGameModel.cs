@@ -32,7 +32,7 @@ namespace Tarahiro.OtherGame
             for(int i = 0; i < _masterDataProvider.Count; i++)
             {
                 var master = _masterDataProvider.TryGetFromIndex(i).GetMaster();
-                if (master.Id != _gameCode)
+                if (master.CodeName != _gameCode)
                 {
                     _availableMasterData.Add(master);
                 }

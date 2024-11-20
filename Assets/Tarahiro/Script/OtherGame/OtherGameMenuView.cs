@@ -18,10 +18,12 @@ namespace Tarahiro.OtherGame
         [SerializeField] Transform _iconRoot;
 
         Subject<int> _focused = new Subject<int>();
+        Subject<Unit> _exited = new Subject<Unit>();
         List<IOtherGameMenuItemView> _itemList = new List<IOtherGameMenuItemView>();
         bool _isInputAcceptable = false;
         int _index = 0;
 
+        public IObservable<Unit> Exited => _exited;
         public IObservable<int> Focused => _focused;
 
         void Awake()
@@ -59,6 +61,8 @@ namespace Tarahiro.OtherGame
         {
             _isInputAcceptable = false;
             UnFocus(_index);
+            _root.SetActive(false);
+            _exited.OnNext(Unit.Default);
         }
 
         void Update()
@@ -77,6 +81,11 @@ namespace Tarahiro.OtherGame
                 if (Input.GetKeyDown(KeyCode.Z))
                 {
                     Decide();
+                }
+
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    Exit();
                 }
 
             }
