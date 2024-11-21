@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>15800</WindowHeight>
-  <WindowWidth>32767</WindowWidth>
+  <WindowHeight>10160</WindowHeight>
+  <WindowWidth>28580</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <RefModeR1C1/>
@@ -113,7 +113,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Script">
-  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="12" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="52.5" ss:DefaultRowHeight="18">
    <Column ss:AutoFitWidth="0" ss:Width="30"/>
    <Column ss:AutoFitWidth="0" ss:Width="46.5"/>
@@ -159,14 +159,22 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">pandemic-nostalgic café game</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">過去となりつつあるコロナ禍を、このゲームで懐かしく思い出しませんか？&#10;急激に移り変わる社会への高揚感。右往左往する国家への冷笑感。命の危険を傍に感じる切迫感。&#10;珈琲の香りとともに、コロナ禍をノスタルジーとして体験しましょう。</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Looking back, what happened in the COVID-19 pandemic might be a nostalgic memory now…&#10;The suspense of not knowing how society will change day by day. The cynicism toward an indecisive country. &#10;The sense of urgency for action and the fear of catching the virus. Reminisce the pandemic with the fragrance of coffee by your side.</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/ccc_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/ccc_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/ccc_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/ccc_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/ccc_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/ccc_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/ccc_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/ccc_rb</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_icon&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/ccc_icon</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_icon&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/ccc_icon</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_c&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/ccc_c</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_c&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/ccc_c</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rt&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/ccc_rt</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rt&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/ccc_rt</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rb&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/ccc_rb</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rb&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/ccc_rb</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/2885880/_/</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/2885880/_/</Data></Cell>
    </Row>
@@ -180,17 +188,26 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">an RPG your live-streaming skills affect the adventure</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">ここは配信技術だけが発達した異世界、ワンダルシア。&#10;駆け出しの異世界配信者になりきって、個性豊かなリスナーや&#10;相棒のネコとともにダンジョン探索を楽しみましょう！</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Wonderlucia, an alternate world where streaming is the sole form of advanced technology.&#10;Become a novice live streaming adventurer and explore dungeons with your cat buddy and quirky viewers!</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rb</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_icon&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/csq_icon</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_icon&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/csq_icon</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_c&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/csq_c</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_c&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/csq_c</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rt&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/csq_rt</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rt&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/csq_rt</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rb&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/csq_rb</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rb&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/csq_rb</Data></Cell>
     <Cell ss:StyleID="s71" ss:HRef="https://store.steampowered.com/app/1610650/LIVE_IN_DUNGEON/"><Data
       ss:Type="String">https://store.steampowered.com/app/1610650/LIVE_IN_DUNGEON/</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/1610650/LIVE_IN_DUNGEON/</Data></Cell>
+    <Cell ss:StyleID="s71" ss:HRef="https://store.steampowered.com/app/1610650/LIVE_IN_DUNGEON/"><Data
+      ss:Type="String">https://store.steampowered.com/app/1610650/LIVE_IN_DUNGEON/</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="Number">2</Data></Cell>
@@ -202,119 +219,86 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Sound Aligned RPG</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">廃墟となった島のはずれで、海辺に漂着した&#10;ビンや木の枝を使って「楽器」を作り出し、&#10;海から聴こえる音に「こだま」を返してみよう。</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">At the edge of a desolate island, pick up what the waves wash ashore to make instruments.&#10; Use those instruments to answer the echoes heard from beyond the ocean.</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rb</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_icon&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_icon&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_c&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/u1w_c</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_c&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/u1w_c</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rt&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/u1w_rt</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rt&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/u1w_rt</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rb&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/u1w_rb</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rb&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/u1w_rb</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/2057080/_/</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/2057080/_/</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">csq2</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">csq</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">●LIVE IN DUNGEON</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">LIVE IN DUNGEON</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">異世界配信者なりきりRPG</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">an RPG your live-streaming skills affect the adventure</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">ここは配信技術だけが発達した異世界、ワンダルシア。&#10;駆け出しの異世界配信者になりきって、個性豊かなリスナーや&#10;相棒のネコとともにダンジョン探索を楽しみましょう！</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Wonderlucia, an alternate world where streaming is the sole form of advanced technology.&#10;Become a novice live streaming adventurer and explore dungeons with your cat buddy and quirky viewers!</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/1610650/LIVE_IN_DUNGEON/</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/1610650/LIVE_IN_DUNGEON/</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">gaw241110</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">gaw241110</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ねこクッキーサバイバー</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ローグライク × クリッカー × ねこ</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"><PhoneticText
+      xmlns="urn:schemas-microsoft-com:office:excel">セマウミトキエラヤ</PhoneticText><Data
+      ss:Type="String">クッキーをクリックして、迫りくる海からねこを救え！&#10;レベルアップの時にどのスキルを選ぶかが、ゲームのカギ！&#10;おモチも焼けるぞ！</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_icon&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241110_icon</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_icon&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241110_icon</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_c&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241110_c</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_c&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241110_c</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rt&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241110_rt</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rt&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241110_rt</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rb&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241110_rb</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rb&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241110_rb</Data></Cell>
+    <Cell ss:StyleID="s71" ss:HRef="https://unityroom.com/games/catcookiesurviver"><Data
+      ss:Type="String">https://unityroom.com/games/catcookiesurviver</Data></Cell>
+    <Cell ss:StyleID="s71" ss:HRef="https://unityroom.com/games/catcookiesurviver"><Data
+      ss:Type="String">https://unityroom.com/games/catcookiesurviver</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">u1w2</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">u1w</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">わだつみのこだま</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Resonance of the Ocean</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">音をそろえるRPG</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sound Aligned RPG</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">廃墟となった島のはずれで、海辺に漂着した&#10;ビンや木の枝を使って「楽器」を作り出し、&#10;海から聴こえる音に「こだま」を返してみよう。</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">At the edge of a desolate island, pick up what the waves wash ashore to make instruments.&#10; Use those instruments to answer the echoes heard from beyond the ocean.</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/2057080/_/</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/2057080/_/</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">csq3</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">csq</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">●LIVE IN DUNGEON</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">LIVE IN DUNGEON</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">異世界配信者なりきりRPG</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">an RPG your live-streaming skills affect the adventure</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">ここは配信技術だけが発達した異世界、ワンダルシア。&#10;駆け出しの異世界配信者になりきって、個性豊かなリスナーや&#10;相棒のネコとともにダンジョン探索を楽しみましょう！</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Wonderlucia, an alternate world where streaming is the sole form of advanced technology.&#10;Become a novice live streaming adventurer and explore dungeons with your cat buddy and quirky viewers!</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/csq_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/1610650/LIVE_IN_DUNGEON/</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/1610650/LIVE_IN_DUNGEON/</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">u1w3</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">u1w</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">わだつみのこだま</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Resonance of the Ocean</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">音をそろえるRPG</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sound Aligned RPG</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">廃墟となった島のはずれで、海辺に漂着した&#10;ビンや木の枝を使って「楽器」を作り出し、&#10;海から聴こえる音に「こだま」を返してみよう。</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">At the edge of a desolate island, pick up what the waves wash ashore to make instruments.&#10; Use those instruments to answer the echoes heard from beyond the ocean.</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/2057080/_/</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/2057080/_/</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">u1w4</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">u1w</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">わだつみのこだま</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Resonance of the Ocean</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">音をそろえるRPG</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sound Aligned RPG</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">廃墟となった島のはずれで、海辺に漂着した&#10;ビンや木の枝を使って「楽器」を作り出し、&#10;海から聴こえる音に「こだま」を返してみよう。</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">At the edge of a desolate island, pick up what the waves wash ashore to make instruments.&#10; Use those instruments to answer the echoes heard from beyond the ocean.</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_icon</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_c</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rt</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rb</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Sprite/OtherGame/u1w_rb</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">gaw241117</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">gaw241117</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">コイントスシミュレーター</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"><PhoneticText
+      xmlns="urn:schemas-microsoft-com:office:excel">ホンカクブツリ</PhoneticText><Data
+      ss:Type="String">本格物理コイントスシミュレーター</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">完全に物理で動く、完全な実力ゲーなコイントスゲームです！&#10;投げ方を工夫して、5連続で表をだそう！</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_icon&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241117_icon</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_icon&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241117_icon</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_c&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241117_c</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_c&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241117_c</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rt&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241117_rt</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rt&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241117_rt</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rb&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241117_rb</Data></Cell>
+    <Cell ss:StyleID="s68" ss:Formula="=CONCAT(&quot;Sprite/OtherGame/&quot;,RC3,&quot;_rb&quot;)"><Data
+      ss:Type="String">Sprite/OtherGame/gaw241117_rb</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/2057080/_/</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">https://store.steampowered.com/app/2057080/_/</Data></Cell>
    </Row>
@@ -338,15 +322,16 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <RangeSelection>R5C1:R12C1</RangeSelection>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+     <RangeSelection>R8C3:R9C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C1:R12C19</Range>
+   <Range>R5C1:R9C19</Range>
    <Condition>
     <Value1>LEN(TRIM(RC))=0</Value1>
     <Format Style='background:#E7E6E6'/>

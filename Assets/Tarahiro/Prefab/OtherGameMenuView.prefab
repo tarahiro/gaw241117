@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 7970978392627917058}
   - component: {fileID: 8980459478552403389}
   - component: {fileID: 2274262750455775162}
+  - component: {fileID: 3451409104448834559}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -78,7 +79,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 16, y: -16}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7970978392627917058
 CanvasRenderer:
@@ -101,14 +102,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.11239196, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d4d845736c3d1d54782cf101d56963cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20d45958d9d2449429b6085657cc19b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -174,6 +175,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3451409104448834559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7522231461894997192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 5, y: -5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &8857281727141768141
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +638,7 @@ GameObject:
   - component: {fileID: 8857281728685016138}
   - component: {fileID: 8857281728685016139}
   - component: {fileID: 7340574697486627069}
+  - component: {fileID: 2555076877093777956}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -647,7 +664,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 360, y: 56}
+  m_SizeDelta: {x: 480, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &8857281728685016138
 CanvasRenderer:
@@ -670,14 +687,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9082569, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d4d845736c3d1d54782cf101d56963cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f0ed0f708599984c853979e4a161fdb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -743,6 +760,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2555076877093777956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8857281728685016137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 10, y: -10}
+  m_UseGraphicAlpha: 1
 --- !u!1 &8857281728773245054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,7 +1361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1062011167444090048, guid: 1de466a04592b514f9394125177bfaf2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 491.2
       objectReference: {fileID: 0}
     - target: {fileID: 1062011167444090048, guid: 1de466a04592b514f9394125177bfaf2, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1389,7 +1421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6783979025127299394, guid: 1de466a04592b514f9394125177bfaf2, type: 3}
       propertyPath: m_text
-      value: Game Page
+      value: "\u30B2\u30FC\u30E0\u30DA\u30FC\u30B8\u3078"
       objectReference: {fileID: 0}
     - target: {fileID: 6783979025127299394, guid: 1de466a04592b514f9394125177bfaf2, type: 3}
       propertyPath: m_fontColor.b
@@ -1414,6 +1446,10 @@ PrefabInstance:
     - target: {fileID: 6783979025127299394, guid: 1de466a04592b514f9394125177bfaf2, type: 3}
       propertyPath: m_VerticalAlignment
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6783979025127299394, guid: 1de466a04592b514f9394125177bfaf2, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

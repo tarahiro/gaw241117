@@ -33,7 +33,6 @@ namespace Tarahiro
                 _instance = g.AddComponent<T>();
                 GameObject.DontDestroyOnLoad(g);
             }
-
         }
     }
 }

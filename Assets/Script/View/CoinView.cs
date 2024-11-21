@@ -11,7 +11,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
 using VContainer.Unity;
-using static Codice.Client.Commands.WkTree.WorkspaceTreeNode;
 
 namespace gaw241117.View
 {
