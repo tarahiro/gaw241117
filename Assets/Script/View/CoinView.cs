@@ -3,6 +3,7 @@ using gaw241117;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Tarahiro;
 using Tarahiro.TInput;
 using UniRx;
@@ -10,6 +11,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using VContainer;
 using VContainer.Unity;
+using static Codice.Client.Commands.WkTree.WorkspaceTreeNode;
 
 namespace gaw241117.View
 {
@@ -43,24 +45,31 @@ namespace gaw241117.View
         void Start()
         {
             _guideObject.SetActive(false);
+            UpdateLoop().Forget();
         }
 
 
-        void Update()
+        async  UniTask UpdateLoop()
         {
-            if (_isInputAcceptable)
+            while (true)
             {
-                if (!_isCoinTurning)
+                if (_isInputAcceptable)
                 {
-                    if (TTouch.GetInstance().State == TouchConst.TouchState.Begin) { 
-                            PrepareThrowCoin().Forget();
+                    if (!_isCoinTurning)
+                    {
+                        if (TTouch.GetInstance().State == TouchConst.TouchState.Begin)
+                        {
+                            await PrepareThrowCoin();
+                        }
                     }
                 }
+                await UniTask.Yield(PlayerLoopTiming.Update);
             }
         }
 
         async UniTask PrepareThrowCoin()
         {
+            Log.DebugLog("OnPrepareThrow");
             await UniTask.WaitUntil(() => TFlick.GetInstance().State == TouchConst.FlickState.End);
             ThrowCoin();
         }
@@ -73,6 +82,7 @@ namespace gaw241117.View
         void ThrowCoin()
         {
 
+            Log.DebugLog("OnCoinThrow");
 
             Vector2 dir = TFlick.GetInstance().VectorFromBegin() / TFlick.GetInstance().TimeFromBegin();
             float forceRate = Mathf.Min(dir.magnitude / c_fakeXyScreenSpeedMaxLength, 1f);
@@ -81,8 +91,6 @@ namespace gaw241117.View
             float z = xzForceLength * dir.y / dir.magnitude;
             _rigidbody.AddForce(new Vector3(x, c_fakeYDirectionForceLengh * forceRate, z), ForceMode.Impulse);
             _rigidbody.AddTorque(Vector3.right * Mathf.PI / 40f * forceRate , ForceMode.Impulse);
-            Log.DebugLog( dir.magnitude.ToString());
-
             TurningCoin().Forget();
         }
 
@@ -100,6 +108,8 @@ namespace gaw241117.View
         {
             _isCoinTurning = false;
             _guideObject.SetActive(true);
+            Log.DebugLog("OnCoinStop");
+
 
             if (_coinRigidbody.IsTurned)
             {
@@ -125,6 +135,7 @@ namespace gaw241117.View
             _rigidbody.rotation = Quaternion.identity;
 
             TurningCoin().Forget();
+            _coinRigidbody.ForceTurn();
 
         }
 #endif

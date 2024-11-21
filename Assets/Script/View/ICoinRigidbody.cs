@@ -12,5 +12,8 @@ namespace gaw241117.View
 {
     public interface ICoinRigidbody : ITurnable, IStandstillable
     {
+#if ENABLE_DEBUG
+        void ForceTurn();
+#endif
     }
 }

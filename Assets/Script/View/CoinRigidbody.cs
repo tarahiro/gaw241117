@@ -104,5 +104,12 @@ namespace gaw241117.View
         {
             return (_normalObject.position - transform.position).normalized;
         }
+
+#if ENABLE_DEBUG
+        public void ForceTurn()
+        {
+            IsTurned = true;
+        }
+#endif
     }
 }

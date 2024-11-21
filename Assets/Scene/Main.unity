@@ -1383,10 +1383,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: IntroductionMenuView
       objectReference: {fileID: 0}
-    - target: {fileID: 8857281727152648148, guid: 6184f7a559a13464b9446eb32126fc7c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8857281727152648151, guid: 6184f7a559a13464b9446eb32126fc7c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3526,8 +3522,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 97}
-  m_SizeDelta: {x: 0, y: 194}
+  m_AnchoredPosition: {x: 0, y: -23.941605}
+  m_SizeDelta: {x: 0, y: -47.8832}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1598393757
 MonoBehaviour:
@@ -3584,7 +3580,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3612,7 +3608,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -9.854553, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
