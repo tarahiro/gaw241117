@@ -52,6 +52,7 @@ namespace Tarahiro.OtherGame
                     Select(x => _detailViewArgsFactory.Invoke(x)).
                     ToList();
             _detailView.InitializeView(detailArgsList);
+            _detailView.Clicked.Subscribe(_model.SelectOtherGame).AddTo(m_Disposables);
 
 
         }

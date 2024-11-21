@@ -15,6 +15,8 @@ namespace Tarahiro.OtherGame
 
     {
         [SerializeField] Image image;
+        [SerializeField] Button _button;
+        public Button Button => _button;
 
         public void Construct(Sprite sprite)
         {

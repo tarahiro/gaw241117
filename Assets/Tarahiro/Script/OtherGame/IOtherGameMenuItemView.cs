@@ -6,6 +6,7 @@ using Tarahiro;
 using Tarahiro.Ui;
 using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 using VContainer;
 
 namespace Tarahiro.OtherGame
@@ -15,5 +16,6 @@ namespace Tarahiro.OtherGame
      //   IObservable<Unit> Focused { get; }
 
         IObservable<string> Decided { get; }
+        Button Button { get; }
     }
 }

@@ -6,6 +6,7 @@ using Tarahiro;
 using Tarahiro.Ui;
 using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 using VContainer;
 
 namespace Tarahiro.OtherGame
@@ -23,14 +24,18 @@ namespace Tarahiro.OtherGame
         Subject<string> _decided = new Subject<string>();
 
         public IObservable<string> Decided => _decided;
+        public Button Button { get; set; }
         public void Construct(IOtherGameMenuItemViewArgs args)
         {
+            _id = args.Id;
+
             var v = factory.Invoke(Resources.Load<Sprite>(args.IconPath));
             v.transform.parent = transform;
-            v.transform.localPosition = Vector3.zero;
+            v.transform.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+            Button = v.Button;
 
-            _id = args.Id;
             _focusObject.transform.SetAsLastSibling();
+            _focusObject.SetActive(false);
         }
 
         public void Focus()

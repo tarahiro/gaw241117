@@ -15,5 +15,7 @@ namespace Tarahiro.OtherGame
         void ShowView(int index);
 
         void InitializeView(List<IOtherGameDetailViewArgs> argsList);
+
+        IObservable<string> Clicked { get; }
     }
 }

@@ -21,8 +21,14 @@ namespace Tarahiro.OtherGame
         [SerializeField] Image _screenShotCenter;
         [SerializeField] Image _screenShotRightTop;
         [SerializeField] Image _screenShotRightBottom;
+        [SerializeField] Button _button;
+
+        string _id;
 
         List<IOtherGameDetailViewArgs> _argsList;
+        Subject<string> _clicked = new Subject<string>();
+
+        public IObservable<string> Clicked => _clicked;
 
         public void InitializeView(List<IOtherGameDetailViewArgs> argsList)
         {
@@ -36,12 +42,18 @@ namespace Tarahiro.OtherGame
 
         public void Sink(IOtherGameDetailViewArgs args)
         {
+            _id = args.Id;
             _title.text = args.TitleName;
             _genre.text = args.GenreName;
             _description.text = args.Description;
             _screenShotCenter.sprite = Resources.Load<Sprite>(args.ScreenShotCenterPath);
             _screenShotRightTop.sprite = Resources.Load<Sprite>(args.ScreenShotRightTopPath);
             _screenShotRightBottom.sprite = Resources.Load<Sprite>(args.ScreenShotRightBottomPath);
+        }
+
+        public void OnClick()
+        {
+            _clicked.OnNext(_id);
         }
     }
 }

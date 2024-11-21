@@ -16,5 +16,6 @@ namespace Tarahiro.OtherGame
         IObservable<int> Focused { get; }
         void InitializeView(List<IOtherGameMenuItemViewArgs> argsList, Action<string> selected, ICollection<IDisposable> disposables);
         void ShowView();
+        void EnterWithFocusIndex(int index);
     }
 }

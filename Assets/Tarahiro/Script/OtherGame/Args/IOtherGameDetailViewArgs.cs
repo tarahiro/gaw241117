@@ -12,6 +12,7 @@ namespace Tarahiro.OtherGame
 {
     public interface IOtherGameDetailViewArgs
     {
+        string Id { get; }
         string TitleName { get; }
         string GenreName { get; }
         string Description { get; }

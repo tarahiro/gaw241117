@@ -13,6 +13,7 @@ namespace Tarahiro.OtherGame
     public class OtherGameDetailViewArgs : IOtherGameDetailViewArgs
     {
 
+        public string Id { get; }
         public string TitleName { get; set; }
         public string GenreName { get; set; }
         public string Description { get; set; }
@@ -20,8 +21,9 @@ namespace Tarahiro.OtherGame
         public string ScreenShotRightTopPath { get; set; }
         public string ScreenShotRightBottomPath { get; set; }
 
-        public OtherGameDetailViewArgs(string titleName, string genreName, string description, string screenShotCenterPath, string screenShotRightTopPath, string screenShotRightBottomPath)
+        public OtherGameDetailViewArgs(string id, string titleName, string genreName, string description, string screenShotCenterPath, string screenShotRightTopPath, string screenShotRightBottomPath)
         {
+            Id = id;
             TitleName = titleName;
             GenreName = genreName;
             Description = description;

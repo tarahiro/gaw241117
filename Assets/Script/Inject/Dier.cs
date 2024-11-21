@@ -80,7 +80,7 @@ namespace gaw241117.Inject
 
             builder.RegisterFactory<IOtherGameMaster, IOtherGameMenuItemViewArgs>(m=> new OtherGameMenuItemViewArgs(m.Id,m.IconPathJp));
 
-            builder.RegisterFactory<IOtherGameMaster, IOtherGameDetailViewArgs>(x => new OtherGameDetailViewArgs(x.TitleNameJp,x.GenreNameJp, x.DescriptionJp,x.ScreenShotCenterPathJp,x.ScreenShotRightTopPathJp,x.ScreenShotRightBottomPathJp));
+            builder.RegisterFactory<IOtherGameMaster, IOtherGameDetailViewArgs>(x => new OtherGameDetailViewArgs(x.Id, x.TitleNameJp,x.GenreNameJp, x.DescriptionJp,x.ScreenShotCenterPathJp,x.ScreenShotRightTopPathJp,x.ScreenShotRightBottomPathJp));
 
 
 

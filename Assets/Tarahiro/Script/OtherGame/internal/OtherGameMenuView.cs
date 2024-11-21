@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Triggers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -31,15 +32,20 @@ namespace Tarahiro.OtherGame
             _root.SetActive(false);
         }
 
+        const float c_iconMergin = 15f;
 
         public void InitializeView(List<IOtherGameMenuItemViewArgs> argsList, Action<string> selected, ICollection<IDisposable> disposables)
         {
-            for (int i = 0; i < argsList.Count && i < OtherGameConst.c_iconNumber; i++)
+            int iconCount = Math.Min(argsList.Count, OtherGameConst.c_iconNumber);
+            for (int i = 0; i < iconCount; i++)
             {
                 var v = factory.Invoke(argsList[i]);
                 v.transform.parent = _iconRoot;
-                v.transform.localPosition = Vector3.right * i * 200f; // fake
+                UiUtil.SetUiComponentOnAlinedAnchoredPosition(_iconRoot.GetComponent<RectTransform>(), v.transform.GetComponent<RectTransform>(),c_iconMergin,i,iconCount);
+              //  v.transform.GetComponent<RectTransform>().anchoredPosition = Vector3.right * (i - (iconCount - 1)) * (v.transform.GetComponent<RectTransform>().sizeDelta.x + c_iconMergin);
                 v.Decided.Subscribe(selected).AddTo(disposables);
+                var count = i;
+                v.Button.onClick.AddListener(delegate { ChangeFocus(count); });
 
                 _itemList.Add(v);
             }
@@ -54,15 +60,27 @@ namespace Tarahiro.OtherGame
         public void Enter()
         {
             _isInputAcceptable = true;
-            Focus(_index);
+            Focus();
+        }
+
+        public void EnterWithFocusIndex(int index)
+        {
+            _isInputAcceptable = true;
+            _index = index;
+            Focus();
         }
 
         public void Exit()
         {
             _isInputAcceptable = false;
-            UnFocus(_index);
+            UnFocus();
             _root.SetActive(false);
             _exited.OnNext(Unit.Default);
+        }
+
+        public void OnClickedExitButton()
+        {
+            Exit();
         }
 
         void Update()
@@ -93,17 +111,18 @@ namespace Tarahiro.OtherGame
 
         void ChangeFocus(int nextIndex)
         {
-            UnFocus(_index);
+            Log.DebugLog(nextIndex);
+            UnFocus();
             _index = nextIndex;
-            Focus(_index);
+            Focus();
         }
 
-        void UnFocus(int index)
+        void UnFocus()
         {
             _itemList[_index].UnFocus();
 
         }
-        void Focus(int index)
+        void Focus()
         {
             _itemList[_index].Focus();
             _focused.OnNext(_index);
